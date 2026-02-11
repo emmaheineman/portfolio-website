@@ -1,0 +1,281 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const albums = [
+  // Row 1: Barcelona, Rome, Brooklyn
+  {
+    title: "Barcelona, Spain",
+    slug: "barcelona",
+    photos: [
+      "/projects/Film/barcelona/000201620030.jpg",
+      "/projects/Film/barcelona/000201620017.jpg",
+      "/projects/Film/barcelona/000201620019.jpg",
+      "/projects/Film/barcelona/000201620021.jpg",
+      "/projects/Film/barcelona/000201620023.jpg",
+      "/projects/Film/barcelona/000201620026.jpg",
+      "/projects/Film/barcelona/000201620027.jpg",
+      "/projects/Film/barcelona/000201620028.jpg",
+    ],
+    interval: 4500,
+  },
+  {
+    title: "Rome, Italy",
+    slug: "rome",
+    photos: [
+      "/projects/Film/rome/fujifilm_400_c_41_8806_92033_204153_002033220036.jpg",
+      "/projects/Film/rome/fujifilm_400_c_41_8806_92033_204153_002033220005.jpg",
+      "/projects/Film/rome/fujifilm_400_c_41_8806_92033_204153_002033220008.jpg",
+      "/projects/Film/rome/fujifilm_400_c_41_8806_92033_204153_002033220016.jpg",
+      "/projects/Film/rome/fujifilm_400_c_41_8806_92033_204153_002033220018.jpg",
+      "/projects/Film/rome/fujifilm_400_c_41_8806_92033_204153_002033220020.jpg",
+      "/projects/Film/rome/fujifilm_400_c_41_8806_92033_204153_002033220024.jpg",
+      "/projects/Film/rome/fujifilm_400_c_41_8806_92033_204153_002033220035.jpg",
+      "/projects/Film/rome/fujifilm_fujicolor_c200_11_18_2024_000328450012.jpg",
+      "/projects/Film/rome/kodak_colorplus_200_11_18_2024_000183510001.jpg",
+      "/projects/Film/rome/kodak_professional_portra_800_11_18_2024_000183520003.jpg",
+      "/projects/Film/rome/kodak_professional_portra_800_11_18_2024_000183520009.jpg",
+      "/projects/Film/rome/kodak_professional_portra_800_11_18_2024_000183520012.jpg",
+      "/projects/Film/rome/kodak_professional_portra_800_11_18_2024_000183520015.jpg",
+      "/projects/Film/rome/kodak_professional_portra_800_11_18_2024_000183520017.jpg",
+      "/projects/Film/rome/kodak_professional_portra_800_11_18_2024_000183520020.jpg",
+      "/projects/Film/rome/kodak_professional_portra_800_11_18_2024_000183520021.jpg",
+      "/projects/Film/rome/kodak_professional_portra_800_11_18_2024_000183520025.jpg",
+      "/projects/Film/rome/kodak_professional_portra_800_11_18_2024_000183520028.jpg",
+      "/projects/Film/rome/kodak_professional_portra_800_11_18_2024_000183520032.jpg",
+      "/projects/Film/rome/kodak_professional_portra_800_11_18_2024_000183520034.jpg",
+    ],
+    interval: 5500,
+  },
+  {
+    title: "Brooklyn, NY",
+    slug: "brooklyn",
+    photos: [
+      "/projects/Film/brooklyn/kodak_professional_portra_800_06_06_2023_000065240008.jpg",
+      "/projects/Film/brooklyn/000182420017.jpg",
+      "/projects/Film/brooklyn/IMG_6734.JPG",
+      "/projects/Film/brooklyn/fujifilm_fujicolor_c200_06_06_2023_000151070017.jpg",
+      "/projects/Film/brooklyn/kodak_pro_image_100_06_06_2023_000117410010.jpg",
+      "/projects/Film/brooklyn/kodak_professional_portra_400_06_22_2023_000120770016.jpg",
+      "/projects/Film/brooklyn/kodak_professional_portra_800_06_06_2023_000065240002.jpg",
+      "/projects/Film/brooklyn/kodak_professional_portra_800_06_06_2023_000065240003.jpg",
+      "/projects/Film/brooklyn/kodak_professional_portra_800_06_06_2023_000065240012.jpg",
+      "/projects/Film/brooklyn/kodak_professional_portra_800_06_06_2023_000065240016.jpg",
+      "/projects/Film/brooklyn/kodak_professional_portra_800_06_06_2023_000065240017.jpg",
+      "/projects/Film/brooklyn/kodak_professional_portra_800_06_06_2023_000065240024.jpg",
+      "/projects/Film/brooklyn/kodak_professional_portra_800_06_06_2023_000065240031.jpg",
+      "/projects/Film/brooklyn/kodak_professional_portra_800_11_18_2024_000328460014.jpg",
+    ],
+    interval: 4600,
+  },
+  // Row 2: Fishkill, Reggio Emilia, Berlin
+  {
+    title: "Fishkill, NY",
+    slug: "fishkill",
+    photos: [
+      "/projects/Film/fishkill/kodak_200_c_41_8806_107784_242905_002429050025.jpg",
+      "/projects/Film/fishkill/kodak_200_c_41_8806_107784_242905_002429050001.jpg",
+      "/projects/Film/fishkill/kodak_200_c_41_8806_107784_242905_002429050011.jpg",
+      "/projects/Film/fishkill/kodak_200_c_41_8806_107784_242905_002429050014.jpg",
+      "/projects/Film/fishkill/kodak_200_c_41_8806_107784_242905_002429050015.jpg",
+      "/projects/Film/fishkill/kodak_200_c_41_8806_107784_242905_002429050016.jpg",
+      "/projects/Film/fishkill/kodak_200_c_41_8806_107784_242905_002429050017.jpg",
+      "/projects/Film/fishkill/kodak_200_c_41_8806_107784_242905_002429050019.jpg",
+      "/projects/Film/fishkill/kodak_200_c_41_8806_107784_242905_002429050023.jpg",
+      "/projects/Film/fishkill/kodak_200_c_41_8806_107784_242905_002429050024.jpg",
+    ],
+    interval: 4900,
+    coverPosition: "right center",
+  },
+  {
+    title: "Reggio Emilia, Italy",
+    slug: "reggio-emilia",
+    photos: [
+      "/projects/Film/reggio emilia/fujifilm_fujicolor_c200_11_18_2024_000328450007.jpg",
+      "/projects/Film/reggio emilia/fujifilm_fujicolor_c200_11_18_2024_000328450001.jpg",
+      "/projects/Film/reggio emilia/kodak_colorplus_200_11_18_2024_000183510009.jpg",
+      "/projects/Film/reggio emilia/kodak_colorplus_200_11_18_2024_000183510020.jpg",
+      "/projects/Film/reggio emilia/kodak_colorplus_200_11_18_2024_000183510022.jpg",
+      "/projects/Film/reggio emilia/kodak_colorplus_200_11_18_2024_000183510026.jpg",
+    ],
+    interval: 5800,
+  },
+  {
+    title: "Berlin, Germany",
+    slug: "berlin",
+    photos: [
+      "/projects/Film/berlin/BAE69C51-6078-4379-AFB9-EEE69CCBD06F.JPG",
+      "/projects/Film/berlin/6DD9BF69-CD88-4731-ACF4-9982E8333910.JPG",
+      "/projects/Film/berlin/8B5D9722-8659-4E09-AA35-6F63C33D97BB.JPG",
+      "/projects/Film/berlin/IMG_6755.jpg",
+      "/projects/Film/berlin/IMG_6756.JPG",
+      "/projects/Film/berlin/IMG_6759.JPG",
+      "/projects/Film/berlin/IMG_6760.JPG",
+      "/projects/Film/berlin/IMG_6761.JPG",
+      "/projects/Film/berlin/IMG_6763.JPG",
+      "/projects/Film/berlin/IMG_6767.JPG",
+    ],
+    interval: 5200,
+  },
+  // Row 3: Prague, Beacon, Viterbo
+  {
+    title: "Prague, Czech Republic",
+    slug: "prague",
+    photos: [
+      "/projects/Film/prague/IMG_6718.JPG",
+      "/projects/Film/prague/961B6DC9-8105-441B-9931-32E4508BA677.JPG",
+      "/projects/Film/prague/IMG_6697.JPG",
+      "/projects/Film/prague/IMG_6706.JPG",
+      "/projects/Film/prague/IMG_6708.JPG",
+      "/projects/Film/prague/IMG_6712.JPG",
+      "/projects/Film/prague/IMG_6713.JPG",
+      "/projects/Film/prague/IMG_6716.JPG",
+      "/projects/Film/prague/IMG_6717.JPG",
+      "/projects/Film/prague/IMG_6719.JPG",
+      "/projects/Film/prague/IMG_6723.JPG",
+      "/projects/Film/prague/IMG_6725.JPG",
+      "/projects/Film/prague/IMG_6746.JPG",
+    ],
+    interval: 4800,
+  },
+  {
+    title: "Beacon, NY",
+    slug: "beacon",
+    photos: [
+      "/projects/Film/Beacon/000182430010.jpg",
+      "/projects/Film/Beacon/000182430019.jpg",
+      "/projects/Film/Beacon/000182430022.jpg",
+      "/projects/Film/Beacon/000182430033.jpg",
+      "/projects/Film/Beacon/000182430034.jpg",
+    ],
+    interval: 5100,
+  },
+  {
+    title: "Viterbo, Italy",
+    slug: "viterbo",
+    photos: [
+      "/projects/Film/viterbo/kodak_professional_portra_800_11_18_2024_000328460029.jpg",
+      "/projects/Film/viterbo/kodak_colorplus_200_11_18_2024_000183510003.jpg",
+      "/projects/Film/viterbo/kodak_colorplus_200_11_18_2024_000183510006.jpg",
+      "/projects/Film/viterbo/kodak_professional_portra_800_11_18_2024_000328460018.jpg",
+      "/projects/Film/viterbo/kodak_professional_portra_800_11_18_2024_000328460019.jpg",
+      "/projects/Film/viterbo/kodak_professional_portra_800_11_18_2024_000328460022.jpg",
+      "/projects/Film/viterbo/kodak_professional_portra_800_11_18_2024_000328460024.jpg",
+      "/projects/Film/viterbo/kodak_professional_portra_800_11_18_2024_000328460026.jpg",
+      "/projects/Film/viterbo/kodak_professional_portra_800_11_18_2024_000328460028.jpg",
+      "/projects/Film/viterbo/kodak_professional_portra_800_11_18_2024_000328460033.jpg",
+    ],
+    interval: 4200,
+    coverPosition: "center top",
+  },
+];
+---
+
+<Layout title="Film Photography | Emma">
+  <!-- Content -->
+  <div style="min-height: 100vh; background-color: #162617;">
+    <div style="display: grid; grid-template-columns: 340px 1fr;">
+
+      <!-- Left Column - Button, Title and Description -->
+      <div style="padding: 2rem 2rem 2rem; position: sticky; top: 0; height: fit-content;">
+        <a href="/" style="display: inline-flex; align-items: center; gap: 0.5rem; background-color: #eeffac; color: #162617; padding: 0.6rem 1.5rem; border-radius: 50px; font-size: 0.9rem; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; margin-bottom: 2rem;" class="font-medium hover:scale-105 hover:shadow-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+          Back
+        </a>
+        <h1 class="font-[family-name:var(--font-display)] text-3xl md:text-4xl mb-4" style="color: #eeffac;">
+          Film Photography
+        </h1>
+        <p style="color: #FAF7F2;" class="text-base mb-4">
+          In a world of instant gratification, film photography is my reminder to slow down. To be present, to be intentional, and to notice things that I might normally overlook.
+        </p>
+        <p style="color: #FAF7F2;" class="text-base">
+          This is a collection of my favorite moments captured on film. Shot on my Canon AE-1, organized by location.
+        </p>
+      </div>
+
+      <!-- Right Column - Album Grid -->
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; align-content: start; padding: 2rem 1rem 3rem 0;">
+        {albums.map((album, index) => (
+          <div
+            class="album-container"
+            data-album-index={index}
+            data-interval={album.interval}
+            data-slug={album.slug}
+            style="position: relative; aspect-ratio: 1; overflow: hidden; cursor: pointer; background-color: #EDE8E0; border-radius: 1rem;"
+          >
+            {album.photos.map((photo, photoIndex) => (
+              <img
+                src={photo}
+                alt={`${album.title} photo ${photoIndex + 1}`}
+                class="album-photo"
+                data-photo-index={photoIndex}
+                style={`position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: ${photoIndex === 0 ? 1 : 0}; transition: opacity 0.8s ease-in-out;${photoIndex === 0 && album.coverPosition ? ` object-position: ${album.coverPosition};` : ''}`}
+              />
+            ))}
+
+            <!-- Hover overlay with location -->
+            <div class="album-overlay">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#eeffac" stroke="#eeffac" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3" fill="#162617"></circle>
+              </svg>
+              <span style="color: #eeffac; font-size: 0.9rem; font-weight: 500;">{album.title}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </div>
+
+</Layout>
+
+<script>
+  document.querySelectorAll('.album-container').forEach((container) => {
+    container.addEventListener('click', () => {
+      const slug = container.dataset.slug;
+      window.location.href = `/film/${slug}`;
+    });
+  });
+</script>
+
+<style>
+  .album-container {
+    transition: transform 0.3s ease;
+  }
+
+  .album-container:hover {
+    transform: scale(1.02);
+  }
+
+  .album-photo {
+    image-orientation: from-image;
+  }
+
+  .album-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(22, 38, 23, 0.6);
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .album-container:hover .album-overlay {
+    opacity: 1;
+  }
+
+  /* Custom cursor for entire page */
+  .album-container, .album-container * {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24'%3E%3Cpath d='M5 3l14 9-6 1 4 7-2 1-4-7-4 5z' fill='%23eeffac' stroke='%23162617' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E") 0 0, auto !important;
+  }
+</style>

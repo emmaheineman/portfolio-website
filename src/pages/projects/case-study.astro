@@ -1,0 +1,107 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const project = {
+  title: "Nonprofit Case Study",
+  category: "Brand & Strategy",
+  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  images: []
+};
+---
+
+<Layout title={`${project.title} | Emma`}>
+  <!-- Back navigation -->
+  <nav class="bg-warm-white border-b border-cream-dark">
+    <div style="padding: 1rem 2rem 1rem 5rem;">
+      <a href="/#work" style="display: inline-flex; align-items: center; gap: 0.5rem; background-color: #162617; color: white; padding: 0.6rem 1.5rem; border-radius: 50px; font-size: 0.9rem; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;" class="font-medium hover:scale-105 hover:shadow-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Back to all work
+      </a>
+    </div>
+  </nav>
+
+  <!-- Two-column layout -->
+  <div style="padding: 2rem 2rem 4rem 5rem;">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
+
+      <!-- Left column - Text content (sticky and scrollable) -->
+      <div style="position: sticky; top: 2rem; align-self: start; max-height: calc(100vh - 4rem); overflow-y: auto; padding-right: 1rem;">
+        <p class="text-coral font-medium mb-4">{project.category}</p>
+        <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl text-text-dark mb-6">
+          {project.title}
+        </h1>
+        <p style="color: #162617; font-style: italic;" class="text-lg mb-8">
+          {project.description}
+        </p>
+
+        <!-- Project Details -->
+        <div style="display: flex; gap: 2rem; padding: 1.5rem 0; border-top: 1px solid #EDE8E0; border-bottom: 1px solid #EDE8E0; margin-bottom: 2rem;">
+          <div style="flex: 0 0 auto;">
+            <p class="text-text-light text-sm mb-1">Year</p>
+            <p class="text-text-dark font-medium text-sm">2024</p>
+          </div>
+          <div style="flex: 0 0 auto;">
+            <p class="text-text-light text-sm mb-1">Type</p>
+            <p class="text-text-dark font-medium text-sm">Brand & Strategy</p>
+          </div>
+          <div style="flex: 1;">
+            <p class="text-text-light text-sm mb-1">Deliverables</p>
+            <p class="text-text-dark font-medium text-sm">Primary and secondary logos, logo mark, color palette, brand pattern</p>
+          </div>
+        </div>
+
+        <!-- About sections -->
+        <div class="space-y-4">
+          <div>
+            <h3 class="text-text-dark font-semibold">The Challenge</h3>
+            <p class="text-text-medium">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-text-dark font-semibold">The Approach</h3>
+            <p class="text-text-medium">
+              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-text-dark font-semibold">The Solution</h3>
+            <p class="text-text-medium">
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right column - Images -->
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 2rem; padding: 0 1.5rem;">
+        <div style="width: 80%; aspect-ratio: 1; background-color: #EDE8E0; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #9497AD;">
+          Project Image
+        </div>
+        <div style="width: 80%; aspect-ratio: 1; background-color: #EDE8E0; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #9497AD;">
+          Project Image
+        </div>
+        <div style="width: 80%; aspect-ratio: 1; background-color: #EDE8E0; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #9497AD;">
+          Project Image
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom Banner -->
+  <section style="background-color: #EDE8E0; margin-top: 4rem; padding: 2.5rem 1.5rem;">
+    <div style="text-align: center;">
+      <a href="/#work" style="display: inline-block; background-color: #162617; color: white; padding: 1rem 2.5rem; border-radius: 50px; font-size: 1.1rem; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;" class="font-medium hover:scale-105 hover:shadow-lg">
+        View All Work →
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-6 px-6 bg-text-dark text-text-light text-center text-sm">
+    <p>Designed & built by Emma</p>
+  </footer>
+</Layout>

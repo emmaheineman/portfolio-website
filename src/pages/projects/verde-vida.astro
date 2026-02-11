@@ -1,0 +1,213 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const project = {
+  title: "Verde Vida",
+  category: "Brand & Strategy",
+  description: "Brand identity for a New York City nonprofit bringing fresh produce and dignity to historically underserved communities.",
+  images: [
+    { src: "/projects/Verde Vida/1.jpg", alt: "Verde Vida design 1" },
+    { src: "/projects/Verde Vida/2.jpg", alt: "Verde Vida design 2" },
+    { src: "/projects/Verde Vida/4.jpg", alt: "Verde Vida design 4" },
+    { src: "/projects/Verde Vida/5.jpg", alt: "Verde Vida design 5" },
+    { src: "/projects/Verde Vida/6.jpg", alt: "Verde Vida design 6" },
+    { src: "/projects/Verde Vida/7.jpg", alt: "Verde Vida design 7" },
+    { src: "/projects/Verde Vida/8.jpg", alt: "Verde Vida design 8" },
+    { src: "/projects/Verde Vida/9.jpg", alt: "Verde Vida design 9" },
+    { src: "/projects/Verde Vida/10.jpg", alt: "Verde Vida design 10" },
+    { src: "/projects/Verde Vida/11.jpg", alt: "Verde Vida design 11" },
+    { src: "/projects/Verde Vida/12.jpg", alt: "Verde Vida design 12" },
+    { src: "/projects/Verde Vida/13.jpg", alt: "Verde Vida design 13" },
+    { src: "/projects/Verde Vida/14.jpg", alt: "Verde Vida design 14" },
+    { src: "/projects/Verde Vida/15.jpg", alt: "Verde Vida design 15" },
+    { src: "/projects/Verde Vida/16.jpg", alt: "Verde Vida design 16" },
+    { src: "/projects/Verde Vida/17.jpg", alt: "Verde Vida design 17" },
+    { src: "/projects/Verde Vida/18.jpg", alt: "Verde Vida design 18" },
+    { src: "/projects/Verde Vida/19.jpg", alt: "Verde Vida design 19" },
+    { src: "/projects/Verde Vida/20.jpg", alt: "Verde Vida design 20" },
+    { src: "/projects/Verde Vida/21.jpg", alt: "Verde Vida design 21" },
+    { src: "/projects/Verde Vida/22.jpg", alt: "Verde Vida design 22" },
+    { src: "/projects/Verde Vida/23.jpg", alt: "Verde Vida design 23" },
+    { src: "/projects/Verde Vida/24.jpg", alt: "Verde Vida design 24" },
+    { src: "/projects/Verde Vida/25.jpg", alt: "Verde Vida design 25" },
+  ]
+};
+---
+
+<Layout title={`${project.title} | Emma`}>
+  <style>
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: #162617;
+      color: #FAF7F2;
+      padding: 0.6rem 1.5rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-primary:hover {
+      background-color: #eeffac;
+      color: #162617;
+    }
+    .btn-large {
+      padding: 1rem 2.5rem;
+      font-size: 1.1rem;
+    }
+    .tab-btn {
+      padding: 0.6rem 1.2rem;
+      border-radius: 50px;
+      border: 2px solid #162617;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .tab-btn.active {
+      background-color: #162617;
+      color: #FAF7F2;
+    }
+    .tab-btn:not(.active) {
+      background-color: transparent;
+      color: #162617;
+    }
+    .tab-btn:hover:not(.active) {
+      background-color: #eeffac;
+      color: #162617;
+      border-color: #eeffac;
+    }
+  </style>
+
+  <!-- Back navigation -->
+  <nav class="bg-warm-white border-b border-cream-dark">
+    <div style="padding: 1rem 2rem 1rem 5rem;">
+      <a href="/#work" class="btn-primary font-medium">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Back to all work
+      </a>
+    </div>
+  </nav>
+
+  <!-- Two-column layout -->
+  <div style="padding: 2rem 2rem 4rem 5rem;">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
+
+      <!-- Left column - Text content (sticky and scrollable) -->
+      <div style="position: sticky; top: 2rem; align-self: start; max-height: calc(100vh - 4rem); overflow-y: auto; padding-right: 1rem;">
+        <p style="color: #162617;" class="font-medium mb-4">{project.category}</p>
+        <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl mb-6" style="color: #162617;">
+          {project.title}
+        </h1>
+        <p style="color: #1a1a1a; font-style: italic;" class="text-lg mb-8">
+          {project.description}
+        </p>
+
+        <!-- Project Details -->
+        <div style="display: flex; gap: 2rem; padding: 1.5rem 0; border-top: 1px solid #EDE8E0; border-bottom: 1px solid #EDE8E0; margin-bottom: 2rem;">
+          <div style="flex: 0 0 auto;">
+            <p style="color: #666666;" class="text-sm mb-1">Year</p>
+            <p style="color: #1a1a1a;" class="font-medium text-sm">2025</p>
+          </div>
+          <div style="flex: 0 0 auto;">
+            <p style="color: #666666;" class="text-sm mb-1">Type</p>
+            <p style="color: #1a1a1a;" class="font-medium text-sm">Brand & Strategy</p>
+          </div>
+          <div style="flex: 1;">
+            <p style="color: #666666;" class="text-sm mb-1">Deliverables</p>
+            <p style="color: #1a1a1a;" class="font-medium text-sm">Brand guidelines, social media templates, event banners</p>
+          </div>
+        </div>
+
+        <!-- About sections -->
+        <div class="space-y-4">
+          <div>
+            <h3 style="color: #162617;" class="font-semibold">The Organization</h3>
+            <p style="color: #1a1a1a;">
+              Verde Vida is dedicated to building a more sustainable and equitable food system by increasing access to fresh, healthy produce for historically underserved communities across New York City. Through community-centered partnerships and pop-up markets, they work to dismantle systemic barriers to food access and empower local residents to reclaim their health, dignity, and resilience. I connected with Verde Vida through Catchafire, a platform that matches volunteers with nonprofits who need professional support.
+            </p>
+          </div>
+          <div>
+            <h3 style="color: #162617;" class="font-semibold">The Challenge</h3>
+            <p style="color: #1a1a1a;">
+              Verde Vida had a logo they'd created in Canva, but no cohesive brand system. When they hired someone to redesign their website, the developer asked for brand guidelines, and they realized they didn't have any. They needed a visual identity that could work across social media, flyers, event banners, and their new website, serving as the foundation for everything going forward.
+            </p>
+          </div>
+          <div>
+            <h3 style="color: #162617;" class="font-semibold">The Approach</h3>
+            <p style="color: #1a1a1a;">
+              I started with what they already had, their existing logo and a few flyers, and built outward from there. Their signature green became the anchor of the palette, reserved for major titles and key brand moments. The founder wanted earth tones that reflected the community and the fresh produce at their pop-up markets, so I developed a palette inspired by the vibrant colors of fruits and vegetables: a carrot orange, sunshine yellow, and an eggplant purple. Each color was assigned to a specific type of call to action to create consistency as they grow. The result is a brand that feels fresh, lively, and rooted in nature.
+            </p>
+          </div>
+          <div>
+            <h3 style="color: #162617;" class="font-semibold">The Impact</h3>
+            <p style="color: #1a1a1a;">
+              The response has been incredibly positive. Donors have reached out to say they love the new identity. Since delivering the guidelines, I've continued working with Verde Vida on event banners, Instagram templates, and other materials to bring the brand to life.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right column - Images with tabs -->
+      <div style="padding: 0 1.5rem;">
+        <!-- Tab buttons -->
+        <div style="display: flex; gap: 0.5rem; margin-bottom: 2rem; justify-content: center;">
+          <button id="tab-brand" class="tab-btn active">
+            Brand Guidelines
+          </button>
+          <button id="tab-banner" class="tab-btn">
+            Banner Designs
+          </button>
+        </div>
+
+        <!-- Brand Guidelines images -->
+        <div id="content-brand" class="tab-content" style="display: flex; flex-direction: column; align-items: center; gap: 2rem;">
+          {project.images.map((image) => (
+            <img
+              src={image.src}
+              alt={image.alt}
+              style="width: 80%; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"
+            />
+          ))}
+        </div>
+
+        <!-- Banner Designs images (empty for now) -->
+        <div id="content-banner" class="tab-content" style="display: none; flex-direction: column; align-items: center; gap: 2rem;">
+          <p style="color: #1a1a1a; font-style: italic;">Banner designs coming soon...</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom Button -->
+  <div style="text-align: center; padding: 4rem 1.5rem 6rem;">
+    <a href="/#work" class="btn-primary btn-large font-medium">
+      View All Work →
+    </a>
+  </div>
+</Layout>
+
+<script>
+  const tabBrand = document.getElementById('tab-brand');
+  const tabBanner = document.getElementById('tab-banner');
+  const contentBrand = document.getElementById('content-brand');
+  const contentBanner = document.getElementById('content-banner');
+
+  tabBrand.addEventListener('click', () => {
+    tabBrand.classList.add('active');
+    tabBanner.classList.remove('active');
+    contentBrand.style.display = 'flex';
+    contentBanner.style.display = 'none';
+  });
+
+  tabBanner.addEventListener('click', () => {
+    tabBanner.classList.add('active');
+    tabBrand.classList.remove('active');
+    contentBanner.style.display = 'flex';
+    contentBrand.style.display = 'none';
+  });
+</script>
