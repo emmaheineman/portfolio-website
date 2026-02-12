@@ -210,6 +210,7 @@ const albums = [
                 alt={`${album.title} photo ${photoIndex + 1}`}
                 class="album-photo"
                 data-photo-index={photoIndex}
+                loading="lazy"
                 style={`position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: ${photoIndex === 0 ? 1 : 0}; transition: opacity 0.8s ease-in-out;${photoIndex === 0 && album.coverPosition ? ` object-position: ${album.coverPosition};` : ''}`}
               />
             ))}

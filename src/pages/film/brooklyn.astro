@@ -34,7 +34,7 @@ const album = {
       </div>
       <div style="padding: 2rem 1rem 3rem 0; columns: 2; gap: 1rem;">
         {album.photos.map((photo, index) => (
-          <img src={photo} alt={`${album.title} photo ${index + 1}`} data-index={index} class="gallery-photo" style="width: 100%; margin-bottom: 1rem; break-inside: avoid; border-radius: 0.5rem; cursor: pointer;" />
+          <img src={photo} alt={`${album.title} photo ${index + 1}`} data-index={index} class="gallery-photo" loading="lazy" style="width: 100%; margin-bottom: 1rem; break-inside: avoid; border-radius: 0.5rem; cursor: pointer;" />
         ))}
       </div>
     </div>
