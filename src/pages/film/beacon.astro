@@ -14,16 +14,23 @@ const album = {
 ---
 
 <Layout title={`${album.title} | Film Photography | Emma`}>
+  <style>
+    @media (max-width: 768px) {
+      .album-layout { grid-template-columns: 1fr !important; }
+      .album-text { position: static !important; padding: 1.5rem !important; }
+      .album-photos { columns: 1 !important; padding: 0 1.5rem 2rem 1.5rem !important; }
+    }
+  </style>
   <div style="min-height: 100vh; background-color: #162617;">
-    <div style="display: grid; grid-template-columns: 340px 1fr;">
-      <div style="padding: 2rem 2rem 2rem; position: sticky; top: 0; height: fit-content;">
+    <div class="album-layout" style="display: grid; grid-template-columns: 340px 1fr;">
+      <div class="album-text" style="padding: 2rem 2rem 2rem; position: sticky; top: 0; height: fit-content;">
         <a href="/film-photography" style="display: inline-flex; align-items: center; gap: 0.5rem; background-color: #eeffac; color: #162617; padding: 0.6rem 1.5rem; border-radius: 50px; font-size: 0.9rem; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; margin-bottom: 2rem;" class="font-medium hover:scale-105 hover:shadow-lg">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
           Back
         </a>
         <h1 class="font-[family-name:var(--font-display)] text-3xl md:text-4xl" style="color: #eeffac;">{album.title}</h1>
       </div>
-      <div style="padding: 2rem 1rem 3rem 0; columns: 2; gap: 1rem;">
+      <div class="album-photos" style="padding: 2rem 1rem 3rem 0; columns: 2; gap: 1rem;">
         {album.photos.map((photo, index) => (
           <img src={photo} alt={`${album.title} photo ${index + 1}`} data-index={index} class="gallery-photo" loading="lazy" style="width: 100%; margin-bottom: 1rem; break-inside: avoid; border-radius: 0.5rem; cursor: pointer;" />
         ))}

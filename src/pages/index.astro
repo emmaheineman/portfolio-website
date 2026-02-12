@@ -114,9 +114,9 @@ const projects = [
 
   <!-- Navigation (stays on top) -->
   <nav class="fixed top-0 left-0 right-0 z-50 custom-cursor" style="background-color: rgba(22, 38, 23, 0.9); backdrop-filter: blur(8px);">
-    <div style="padding: 1rem 4rem;" class="flex justify-between items-center">
-      <a href="/" class="font-[family-name:var(--font-display)] text-xl transition-colors hover-lime" style="color: #FAF7F2;">Emma Heineman</a>
-      <div class="flex gap-8">
+    <div style="padding: 1rem 4rem;" class="nav-container flex justify-between items-center">
+      <a href="/" class="nav-name font-[family-name:var(--font-display)] text-xl transition-colors hover-lime" style="color: #FAF7F2;">Emma Heineman</a>
+      <div class="nav-links flex gap-8">
         <a href="#work" class="transition-colors hover-lime" style="color: #FAF7F2;">Design Work</a>
         <a href="#about" class="transition-colors hover-lime" style="color: #FAF7F2;">About</a>
         <a href="/film-photography" class="transition-colors hover-lime" style="color: #FAF7F2;">Film Photography</a>
@@ -124,13 +124,51 @@ const projects = [
     </div>
   </nav>
 
+  <style>
+    @media (max-width: 768px) {
+      .nav-container {
+        justify-content: center !important;
+        padding: 0.75rem 0 !important;
+      }
+      .nav-name {
+        display: none;
+      }
+      .nav-links {
+        gap: 1.25rem !important;
+        font-size: 0.85rem;
+        width: 100%;
+        justify-content: center;
+      }
+      .scrolling-content {
+        padding: 0 !important;
+      }
+      .frosted-panel {
+        border-radius: 0 !important;
+      }
+      .contact-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .contact-buttons a {
+        text-align: center;
+      }
+      #work {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+      }
+      #work p {
+        margin-bottom: 2rem !important;
+      }
+    }
+  </style>
+
   <!-- Scrolling Content -->
-  <div class="custom-cursor" style="position: relative; z-index: 1; padding: 0 4rem;">
+  <div class="scrolling-content custom-cursor" style="position: relative; z-index: 1; padding: 0 4rem;">
     <!-- Spacer to push content below hero -->
     <div style="height: 100vh;"></div>
 
     <!-- Frosted glass container - Work Section -->
-    <div style="background-color: rgba(250, 247, 242, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-radius: 2rem;">
+    <div class="frosted-panel" style="background-color: rgba(250, 247, 242, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-radius: 2rem;">
       <section id="work" class="py-24 px-6">
         <div class="max-w-6xl mx-auto">
           <h2 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl mb-4 text-center" style="color: #162617;">
@@ -183,7 +221,7 @@ const projects = [
     <div style="height: 2rem;"></div>
 
     <!-- Frosted glass container - About Section -->
-    <div style="background-color: rgba(238, 255, 172, 0.8); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-radius: 2rem;">
+    <div class="frosted-panel" style="background-color: rgba(238, 255, 172, 0.8); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-radius: 2rem;">
       <section id="about" class="py-16 px-6">
         <div class="max-w-4xl mx-auto">
           <div class="grid md:grid-cols-2 gap-12 items-center">
@@ -216,7 +254,7 @@ const projects = [
                 </p>
               </div>
 
-              <div class="mt-8 flex gap-4">
+              <div class="contact-buttons mt-8 flex gap-4">
                 <a
                   href="mailto:heineman2022@gmail.com"
                   class="px-6 py-2 text-white rounded-full transition-colors font-medium hover-lime-bg"

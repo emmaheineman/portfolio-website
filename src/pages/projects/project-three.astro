@@ -38,11 +38,35 @@ const project = {
       padding: 1rem 2.5rem;
       font-size: 1.1rem;
     }
+    @media (max-width: 768px) {
+      .project-container {
+        padding: 1.5rem !important;
+      }
+      .project-layout {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+      }
+      .project-text {
+        position: static !important;
+        max-height: none !important;
+        overflow-y: visible !important;
+        padding-right: 0 !important;
+      }
+      .project-images {
+        padding: 0 !important;
+      }
+      .project-images img {
+        width: 100% !important;
+      }
+      .back-nav {
+        padding: 1rem 1.5rem !important;
+      }
+    }
   </style>
 
   <!-- Back navigation -->
   <nav class="bg-warm-white border-b border-cream-dark">
-    <div style="padding: 1rem 2rem 1rem 5rem;">
+    <div class="back-nav" style="padding: 1rem 2rem 1rem 5rem;">
       <a href="/#work" class="btn-primary font-medium">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M19 12H5M12 19l-7-7 7-7"/>
@@ -53,11 +77,11 @@ const project = {
   </nav>
 
   <!-- Two-column layout -->
-  <div style="padding: 2rem 2rem 4rem 5rem;">
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
+  <div class="project-container" style="padding: 2rem 2rem 4rem 5rem;">
+    <div class="project-layout" style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
 
       <!-- Left column - Text content (sticky and scrollable) -->
-      <div style="position: sticky; top: 2rem; align-self: start; max-height: calc(100vh - 4rem); overflow-y: auto; padding-right: 1rem;">
+      <div class="project-text" style="position: sticky; top: 2rem; align-self: start; max-height: calc(100vh - 4rem); overflow-y: auto; padding-right: 1rem;">
         <p style="color: #162617;" class="font-medium mb-4">{project.category}</p>
         <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl mb-6" style="color: #162617;">
           {project.title}
@@ -106,7 +130,7 @@ const project = {
       </div>
 
       <!-- Right column - Images -->
-      <div style="display: flex; flex-direction: column; align-items: center; gap: 2rem; padding: 0 1.5rem;">
+      <div class="project-images" style="display: flex; flex-direction: column; align-items: center; gap: 2rem; padding: 0 1.5rem;">
         {project.mainImages.map((image) => (
           <img
             src={image.src}

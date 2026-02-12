@@ -173,10 +173,10 @@ const albums = [
 <Layout title="Film Photography | Emma">
   <!-- Content -->
   <div style="min-height: 100vh; background-color: #162617;">
-    <div style="display: grid; grid-template-columns: 340px 1fr;">
+    <div class="film-layout" style="display: grid; grid-template-columns: 340px 1fr;">
 
       <!-- Left Column - Button, Title and Description -->
-      <div style="padding: 2rem 2rem 2rem; position: sticky; top: 0; height: fit-content;">
+      <div class="film-text" style="padding: 2rem 2rem 2rem; position: sticky; top: 0; height: fit-content;">
         <a href="/" style="display: inline-flex; align-items: center; gap: 0.5rem; background-color: #eeffac; color: #162617; padding: 0.6rem 1.5rem; border-radius: 50px; font-size: 0.9rem; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; margin-bottom: 2rem;" class="font-medium hover:scale-105 hover:shadow-lg">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M19 12H5M12 19l-7-7 7-7"/>
@@ -195,7 +195,7 @@ const albums = [
       </div>
 
       <!-- Right Column - Album Grid -->
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; align-content: start; padding: 2rem 1rem 3rem 0;">
+      <div class="film-albums" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; align-content: start; padding: 2rem 1rem 3rem 0;">
         {albums.map((album, index) => (
           <div
             class="album-container"
@@ -278,5 +278,19 @@ const albums = [
   /* Custom cursor for entire page */
   .album-container, .album-container * {
     cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24'%3E%3Cpath d='M5 3l14 9-6 1 4 7-2 1-4-7-4 5z' fill='%23eeffac' stroke='%23162617' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E") 0 0, auto !important;
+  }
+
+  @media (max-width: 768px) {
+    .film-layout {
+      grid-template-columns: 1fr !important;
+    }
+    .film-text {
+      position: static !important;
+      padding: 1.5rem !important;
+    }
+    .film-albums {
+      grid-template-columns: repeat(2, 1fr) !important;
+      padding: 0 1.5rem 2rem 1.5rem !important;
+    }
   }
 </style>
