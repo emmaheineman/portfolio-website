@@ -89,19 +89,25 @@ const { title, category, description, year, type, deliverables, sections } = Ast
     @media (max-width: 768px) {
       .project-container {
         padding: 1.5rem !important;
+        height: auto !important;
       }
       .project-layout {
         grid-template-columns: 1fr !important;
         gap: 2rem !important;
+        height: auto !important;
       }
       .project-text {
         position: static !important;
         max-height: none !important;
+        height: auto !important;
         overflow-y: visible !important;
         padding-right: 0 !important;
+        padding-top: 0 !important;
       }
       .project-images {
         padding: 0 !important;
+        height: auto !important;
+        overflow-y: visible !important;
       }
       .project-images img {
         width: 100% !important;
@@ -123,11 +129,11 @@ const { title, category, description, year, type, deliverables, sections } = Ast
   </div>
 
   <!-- Two-column layout -->
-  <div class="project-container" style="padding: 2rem 2rem 4rem 5rem;">
-    <div class="project-layout" style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
+  <div class="project-container" style="padding: 0 2rem 0 5rem; height: calc(100vh - 140px);">
+    <div class="project-layout" style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; height: 100%;">
 
-      <!-- Left column - Text content (sticky and scrollable) -->
-      <div class="project-text" style="position: sticky; top: 2rem; align-self: start; max-height: calc(100vh - 4rem); overflow-y: auto; padding-right: 1rem;">
+      <!-- Left column - Text content (scrollable) -->
+      <div class="project-text" style="overflow-y: auto; padding-right: 1rem; height: 100%; padding-top: 2rem; padding-bottom: 2rem;">
         <p style="color: #162617;" class="project-category font-medium mb-4">{category}</p>
         <h1 class="project-title font-[family-name:var(--font-display)] text-4xl md:text-5xl mb-6" style="color: #162617;">
           {title}
@@ -168,8 +174,8 @@ const { title, category, description, year, type, deliverables, sections } = Ast
         <slot name="after-sections" />
       </div>
 
-      <!-- Right column - Images (slot for custom content) -->
-      <div class="project-images" style="display: flex; flex-direction: column; align-items: center; gap: 2rem; padding: 0 1.5rem;">
+      <!-- Right column - Images (slot for custom content, scrolls independently) -->
+      <div class="project-images" style="display: flex; flex-direction: column; align-items: center; gap: 2rem; padding: 2rem 1.5rem; overflow-y: auto; height: 100%;">
         <slot />
       </div>
 
