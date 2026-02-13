@@ -1,0 +1,179 @@
+---
+import Layout from './Layout.astro';
+
+interface Section {
+  title: string;
+  body: string;
+}
+
+interface Props {
+  title: string;
+  category: string;
+  description: string;
+  year: string;
+  type: string;
+  deliverables: string;
+  sections: Section[];
+}
+
+const { title, category, description, year, type, deliverables, sections } = Astro.props;
+---
+
+<Layout title={`${title} | Emma`}>
+  <style is:global>
+    /* Light mode button */
+    .light-mode .btn-back {
+      background-color: #162617;
+      color: #FAF7F2;
+      border: 2px solid #162617;
+    }
+    .light-mode .btn-back:hover {
+      background-color: #eeffac;
+      color: #162617;
+      border-color: #eeffac;
+    }
+
+    /* Dark mode button */
+    .dark-mode .btn-back {
+      background-color: transparent;
+      color: #eeffac;
+      border: 2px solid #eeffac;
+    }
+    .dark-mode .btn-back:hover {
+      background-color: #eeffac;
+      color: #162617;
+      border-color: #eeffac;
+    }
+
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.5rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-large {
+      padding: 1rem 2.5rem;
+      font-size: 1.1rem;
+    }
+
+    /* Dark mode text colors */
+    .dark-mode .project-category {
+      color: #FAF7F2 !important;
+    }
+    .dark-mode .project-title {
+      color: #eeffac !important;
+    }
+    .dark-mode .project-description {
+      color: #FAF7F2 !important;
+    }
+    .dark-mode .detail-label {
+      color: #888888 !important;
+    }
+    .dark-mode .detail-value {
+      color: #FAF7F2 !important;
+    }
+    .dark-mode .section-title {
+      color: #eeffac !important;
+    }
+    .dark-mode .section-body {
+      color: #FAF7F2 !important;
+    }
+    .dark-mode .project-details-bar {
+      border-color: rgba(238, 255, 172, 0.3) !important;
+    }
+    @media (max-width: 768px) {
+      .project-container {
+        padding: 1.5rem !important;
+      }
+      .project-layout {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+      }
+      .project-text {
+        position: static !important;
+        max-height: none !important;
+        overflow-y: visible !important;
+        padding-right: 0 !important;
+      }
+      .project-images {
+        padding: 0 !important;
+      }
+      .project-images img {
+        width: 100% !important;
+      }
+      .back-nav {
+        padding: 1rem 1.5rem !important;
+      }
+    }
+  </style>
+
+  <!-- Back navigation -->
+  <div class="back-nav" style="padding: 1rem 2rem 1rem 3rem;">
+    <a href="/#work" class="btn-back font-medium">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+      Back to all work
+    </a>
+  </div>
+
+  <!-- Two-column layout -->
+  <div class="project-container" style="padding: 2rem 2rem 4rem 5rem;">
+    <div class="project-layout" style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
+
+      <!-- Left column - Text content (sticky and scrollable) -->
+      <div class="project-text" style="position: sticky; top: 2rem; align-self: start; max-height: calc(100vh - 4rem); overflow-y: auto; padding-right: 1rem;">
+        <p style="color: #162617;" class="project-category font-medium mb-4">{category}</p>
+        <h1 class="project-title font-[family-name:var(--font-display)] text-4xl md:text-5xl mb-6" style="color: #162617;">
+          {title}
+        </h1>
+        <p style="color: #1a1a1a; font-style: italic;" class="project-description text-lg mb-8">
+          {description}
+        </p>
+
+        <!-- Project Details -->
+        <div class="project-details-bar" style="display: flex; gap: 2rem; padding: 1.5rem 0; border-top: 1px solid #EDE8E0; border-bottom: 1px solid #EDE8E0; margin-bottom: 2rem;">
+          <div style="flex: 0 0 auto;">
+            <p style="color: #666666;" class="detail-label text-sm mb-1">Year</p>
+            <p style="color: #1a1a1a;" class="detail-value font-medium text-sm">{year}</p>
+          </div>
+          <div style="flex: 0 0 auto;">
+            <p style="color: #666666;" class="detail-label text-sm mb-1">Type</p>
+            <p style="color: #1a1a1a;" class="detail-value font-medium text-sm">{type}</p>
+          </div>
+          <div style="flex: 1;">
+            <p style="color: #666666;" class="detail-label text-sm mb-1">Deliverables</p>
+            <p style="color: #1a1a1a;" class="detail-value font-medium text-sm">{deliverables}</p>
+          </div>
+        </div>
+
+        <!-- About sections -->
+        <div class="space-y-4">
+          {sections.map((section) => (
+            <div>
+              <h3 style="color: #162617;" class="section-title font-semibold">{section.title}</h3>
+              <p style="color: #1a1a1a;" class="section-body">
+                {section.body}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <!-- Extra content below sections (testimonials, etc.) -->
+        <slot name="after-sections" />
+      </div>
+
+      <!-- Right column - Images (slot for custom content) -->
+      <div class="project-images" style="display: flex; flex-direction: column; align-items: center; gap: 2rem; padding: 0 1.5rem;">
+        <slot />
+      </div>
+
+    </div>
+  </div>
+
+</Layout>

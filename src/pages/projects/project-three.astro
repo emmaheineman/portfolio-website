@@ -1,10 +1,27 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import ProjectLayout from '../../layouts/ProjectLayout.astro';
 
 const project = {
   title: "Graduation Announcement",
   category: "Print Design",
   description: "A custom graduation announcement designed to capture personality over formality.",
+  year: "2024",
+  type: "Print Design",
+  deliverables: "Graduation announcement design",
+  sections: [
+    {
+      title: "The Challenge",
+      body: "Every graduation announcement template out there looks the same. They are polished and formal, but ultimately pretty generic. This graduate is obsessed with his truck and couldn't wait to be done with school. He needed something that actually felt like him.",
+    },
+    {
+      title: "The Approach",
+      body: "Instead of a refined script font, I went with blocky, rough-edged typography and a tongue-in-cheek headline. The goal was to make people who know him laugh while still marking the occasion.",
+    },
+    {
+      title: "The Result",
+      body: "The final design is playful and personal and most importantly feels authentic to him. This was also one of my first projects to see through to print, which was really cool.",
+    },
+  ],
   mainImages: [
     { src: "/projects/tate/Tate front.jpg", alt: "Graduation announcement front" },
     { src: "/projects/tate/Tate back.jpg", alt: "Graduation announcement back" },
@@ -12,151 +29,33 @@ const project = {
   printImages: [
     { src: "/projects/tate/tate real.jpg", alt: "Printed graduation announcement" },
     { src: "/projects/tate/Title (2).jpg", alt: "Printed graduation announcement detail" },
-  ]
+  ],
 };
 ---
 
-<Layout title={`${project.title} | Emma`}>
-  <style>
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background-color: #162617;
-      color: #FAF7F2;
-      padding: 0.6rem 1.5rem;
-      border-radius: 50px;
-      font-size: 0.9rem;
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-    .btn-primary:hover {
-      background-color: #eeffac;
-      color: #162617;
-    }
-    .btn-large {
-      padding: 1rem 2.5rem;
-      font-size: 1.1rem;
-    }
-    @media (max-width: 768px) {
-      .project-container {
-        padding: 1.5rem !important;
-      }
-      .project-layout {
-        grid-template-columns: 1fr !important;
-        gap: 2rem !important;
-      }
-      .project-text {
-        position: static !important;
-        max-height: none !important;
-        overflow-y: visible !important;
-        padding-right: 0 !important;
-      }
-      .project-images {
-        padding: 0 !important;
-      }
-      .project-images img {
-        width: 100% !important;
-      }
-      .back-nav {
-        padding: 1rem 1.5rem !important;
-      }
-    }
-  </style>
-
-  <!-- Back navigation -->
-  <nav class="bg-warm-white border-b border-cream-dark">
-    <div class="back-nav" style="padding: 1rem 2rem 1rem 5rem;">
-      <a href="/#work" class="btn-primary font-medium">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M19 12H5M12 19l-7-7 7-7"/>
-        </svg>
-        Back to all work
-      </a>
-    </div>
-  </nav>
-
-  <!-- Two-column layout -->
-  <div class="project-container" style="padding: 2rem 2rem 4rem 5rem;">
-    <div class="project-layout" style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
-
-      <!-- Left column - Text content (sticky and scrollable) -->
-      <div class="project-text" style="position: sticky; top: 2rem; align-self: start; max-height: calc(100vh - 4rem); overflow-y: auto; padding-right: 1rem;">
-        <p style="color: #162617;" class="font-medium mb-4">{project.category}</p>
-        <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl mb-6" style="color: #162617;">
-          {project.title}
-        </h1>
-        <p style="color: #1a1a1a; font-style: italic;" class="text-lg mb-8">
-          {project.description}
-        </p>
-
-        <!-- Project Details -->
-        <div style="display: flex; gap: 2rem; padding: 1.5rem 0; border-top: 1px solid #EDE8E0; border-bottom: 1px solid #EDE8E0; margin-bottom: 2rem;">
-          <div style="flex: 0 0 auto;">
-            <p style="color: #666666;" class="text-sm mb-1">Year</p>
-            <p style="color: #1a1a1a;" class="font-medium text-sm">2024</p>
-          </div>
-          <div style="flex: 0 0 auto;">
-            <p style="color: #666666;" class="text-sm mb-1">Type</p>
-            <p style="color: #1a1a1a;" class="font-medium text-sm">Print Design</p>
-          </div>
-          <div style="flex: 1;">
-            <p style="color: #666666;" class="text-sm mb-1">Deliverables</p>
-            <p style="color: #1a1a1a;" class="font-medium text-sm">Graduation announcement design</p>
-          </div>
-        </div>
-
-        <!-- About sections -->
-        <div class="space-y-4">
-          <div>
-            <h3 style="color: #162617;" class="font-semibold">The Challenge</h3>
-            <p style="color: #1a1a1a;">
-              Every graduation announcement template out there looks the same. They are polished and formal, but ultimately pretty generic. This graduate is obsessed with his truck and couldn't wait to be done with school. He needed something that actually felt like him.
-            </p>
-          </div>
-          <div>
-            <h3 style="color: #162617;" class="font-semibold">The Approach</h3>
-            <p style="color: #1a1a1a;">
-              Instead of a refined script font, I went with blocky, rough-edged typography and a tongue-in-cheek headline. The goal was to make people who know him laugh while still marking the occasion.
-            </p>
-          </div>
-          <div>
-            <h3 style="color: #162617;" class="font-semibold">The Result</h3>
-            <p style="color: #1a1a1a;">
-              The final design is playful and personal and most importantly feels authentic to him. This was also one of my first projects to see through to print, which was really cool.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right column - Images -->
-      <div class="project-images" style="display: flex; flex-direction: column; align-items: center; gap: 2rem; padding: 0 1.5rem;">
-        {project.mainImages.map((image) => (
-          <img
-            src={image.src}
-            alt={image.alt}
-            style="width: 80%; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"
-          />
-        ))}
-        <!-- Printed versions side by side -->
-        <div style="display: flex; gap: 1rem; width: 80%; justify-content: center;">
-          {project.printImages.map((image) => (
-            <img
-              src={image.src}
-              alt={image.alt}
-              style="width: calc(50% - 0.5rem); border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"
-            />
-          ))}
-        </div>
-      </div>
-
-    </div>
+<ProjectLayout
+  title={project.title}
+  category={project.category}
+  description={project.description}
+  year={project.year}
+  type={project.type}
+  deliverables={project.deliverables}
+  sections={project.sections}
+>
+  {project.mainImages.map((image) => (
+    <img
+      src={image.src}
+      alt={image.alt}
+      style="width: 80%; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"
+    />
+  ))}
+  <div style="display: flex; gap: 1rem; width: 80%; justify-content: center;">
+    {project.printImages.map((image) => (
+      <img
+        src={image.src}
+        alt={image.alt}
+        style="width: calc(50% - 0.5rem); border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"
+      />
+    ))}
   </div>
-
-  <!-- Bottom Button -->
-  <div style="text-align: center; padding: 4rem 1.5rem 6rem;">
-    <a href="/#work" class="btn-primary btn-large font-medium">
-      View All Work →
-    </a>
-  </div>
-</Layout>
+</ProjectLayout>

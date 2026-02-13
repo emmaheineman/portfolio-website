@@ -1,0 +1,93 @@
+---
+interface Props {
+  photos: string[];
+}
+
+const { photos } = Astro.props;
+---
+
+<div id="lightbox" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 100; backdrop-filter: blur(8px);">
+  <button id="lightbox-close" style="position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; cursor: pointer; z-index: 101;">
+    <svg id="close-svg" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#eeffac" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
+  <button id="lightbox-prev" style="position: absolute; left: 1.5rem; top: 50%; transform: translateY(-50%); border: none; border-radius: 50%; width: 50px; height: 50px; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+    <svg id="prev-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#eeffac" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+  </button>
+  <button id="lightbox-next" style="position: absolute; right: 1.5rem; top: 50%; transform: translateY(-50%); border: none; border-radius: 50%; width: 50px; height: 50px; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+    <svg id="next-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#eeffac" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+  </button>
+  <div style="display: flex; align-items: center; justify-content: center; height: 100%; padding: 4rem;">
+    <img id="lightbox-img" src="" alt="" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 0.5rem;" />
+  </div>
+</div>
+
+<style>
+  .gallery-photo:hover { transform: scale(1.02); transition: transform 0.2s; }
+</style>
+
+<script define:vars={{ photos }}>
+  let currentIndex = 0;
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+
+  function applyLightboxTheme() {
+    const isLight = document.getElementById('page-container').classList.contains('light-mode');
+    lightbox.style.backgroundColor = isLight ? 'rgba(250, 247, 242, 0.95)' : 'rgba(22, 38, 23, 0.95)';
+    const btnColor = isLight ? 'rgba(22, 38, 23, 0.2)' : 'rgba(238, 255, 172, 0.2)';
+    const strokeColor = isLight ? '#162617' : '#eeffac';
+    document.getElementById('lightbox-prev').style.background = btnColor;
+    document.getElementById('lightbox-next').style.background = btnColor;
+    document.getElementById('close-svg').setAttribute('stroke', strokeColor);
+    document.getElementById('prev-svg').setAttribute('stroke', strokeColor);
+    document.getElementById('next-svg').setAttribute('stroke', strokeColor);
+  }
+
+  document.querySelectorAll('.gallery-photo').forEach((img) => {
+    img.addEventListener('click', () => {
+      currentIndex = parseInt(img.dataset.index);
+      lightboxImg.src = photos[currentIndex];
+      applyLightboxTheme();
+      lightbox.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  document.getElementById('lightbox-close').addEventListener('click', () => {
+    lightbox.style.display = 'none';
+    document.body.style.overflow = '';
+  });
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+      lightbox.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+  });
+
+  document.getElementById('lightbox-prev').addEventListener('click', (e) => {
+    e.stopPropagation();
+    currentIndex = (currentIndex - 1 + photos.length) % photos.length;
+    lightboxImg.src = photos[currentIndex];
+  });
+
+  document.getElementById('lightbox-next').addEventListener('click', (e) => {
+    e.stopPropagation();
+    currentIndex = (currentIndex + 1) % photos.length;
+    lightboxImg.src = photos[currentIndex];
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (lightbox.style.display === 'block') {
+      if (e.key === 'Escape') {
+        lightbox.style.display = 'none';
+        document.body.style.overflow = '';
+      } else if (e.key === 'ArrowLeft') {
+        currentIndex = (currentIndex - 1 + photos.length) % photos.length;
+        lightboxImg.src = photos[currentIndex];
+      } else if (e.key === 'ArrowRight') {
+        currentIndex = (currentIndex + 1) % photos.length;
+        lightboxImg.src = photos[currentIndex];
+      }
+    }
+  });
+</script>

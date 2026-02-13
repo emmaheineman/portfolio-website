@@ -7,16 +7,17 @@ const projects = [
     title: "Acro Yoga CHS",
     slug: "acro-yoga",
     category: "Brand Identity",
-    description: "Acro Yoga CHS is an acrobatic yoga group based in Charleston, South Carolina. The designs were inspired by the nature of the South Carolinian coast and incorporate the iconic Charleston pineapple.",
+    year: "2023",
+    description: "Brand identity for an acrobatic yoga group in Charleston, SC.",
     image: "/projects/acro-yoga/primary.jpg",
-    thumbnailStyle: "transform: scale(1.05);",
   },
   {
     id: 2,
     title: "Keene Housing Kids Collaborative",
     slug: "khkc",
     category: "Print Design",
-    description: "Print design project for a nonprofit connecting kids in affordable housing with enriching after-school and summer programs.",
+    year: "2024",
+    description: "Print design for a nonprofit connecting kids in affordable housing with enriching programs.",
     image: "/projects/KHKC/zoomed out.png",
     thumbnailStyle: "transform: scale(1.5);",
   },
@@ -25,7 +26,8 @@ const projects = [
     title: "Verde Vida",
     slug: "verde-vida",
     category: "Brand & Strategy",
-    description: "Brand identity for a New York City nonprofit bringing fresh produce and dignity to historically underserved communities.",
+    year: "2025",
+    description: "Brand identity for a NYC nonprofit bringing fresh produce to underserved communities.",
     image: "/projects/Verde Vida/verde vida thumbnail.jpg",
   },
   {
@@ -33,278 +35,191 @@ const projects = [
     title: "Graduation Announcement",
     slug: "project-three",
     category: "Print Design",
+    year: "2024",
     description: "A custom graduation announcement designed to capture personality over formality.",
     image: "/projects/tate/Tate front.jpg",
-    thumbnailStyle: "transform: scale(1.05);",
+    thumbnailStyle: "object-position: center 25%;",
   },
   {
     id: 5,
     title: "Office of Education Abroad",
     slug: "hunter",
     category: "Brand Identity",
-    description: "A cohesive visual identity for CUNY Hunter College's study abroad office, built from the ground up.",
-    image: "/projects/hunter/flyer mock.png",
+    year: "2024",
+    description: "A cohesive visual identity for CUNY Hunter College's study abroad office.",
+    image: "/projects/hunter/Instagram Designs mock.jpg",
   },
   {
     id: 6,
     title: "Sadie Skin",
     slug: "project-two",
     category: "Mock Project",
+    year: "2024",
     description: "A clean, minimal skincare brand identity designed to feel fresh and approachable.",
     image: "/projects/sadie-skin/image-13.jpg",
   },
 ];
 ---
 
-<Layout title="Emma | Designer">
-  <style>
-    .hover-lime:hover {
-      color: #eeffac !important;
+<Layout title="Emma Heineman | Designer">
+  <style is:global>
+    .project-row:hover img {
+      transform: scale(1.02);
     }
-    .group:hover .group-hover-lime {
-      color: #eeffac !important;
+    .project-row img {
+      transition: transform 0.3s ease;
     }
-    .hover-lime-bg:hover {
-      background-color: #eeffac !important;
-      color: #162617 !important;
+    .project-row:hover .project-title {
+      font-weight: bold;
     }
-    @keyframes float {
+
+    /* Light mode styles */
+    .light-mode .hero-intro,
+    .light-mode .hero-subtext,
+    .light-mode .project-year,
+    .light-mode .project-category,
+    .light-mode .project-description {
+      color: #666;
+    }
+    .light-mode .hero-title,
+    .light-mode .project-title {
+      color: #162617;
+    }
+    .light-mode .highlight-green {
+      background: none;
+    }
+    .light-mode .project-row[style*="border-top"] {
+      border-color: #e0e0e0 !important;
+    }
+
+    /* Dark mode styles */
+    .dark-mode .hero-intro,
+    .dark-mode .hero-subtext {
+      color: #eeffac;
+    }
+    .dark-mode .project-year,
+    .dark-mode .project-category,
+    .dark-mode .project-description {
+      color: #aaa;
+      transition: color 0.2s ease;
+    }
+    .dark-mode .project-row:hover .project-year,
+    .dark-mode .project-row:hover .project-category,
+    .dark-mode .project-row:hover .project-description {
+      color: #FAF7F2;
+    }
+    .dark-mode .hero-title {
+      color: #FAF7F2;
+    }
+    .dark-mode .project-title {
+      color: #eeffac;
+    }
+    .dark-mode .highlight-green {
+      background: linear-gradient(to top, transparent 15%, rgba(238, 255, 172, 0.4) 15%, rgba(238, 255, 172, 0.4) 55%, transparent 55%);
+    }
+    .dark-mode .project-row[style*="border-top"] {
+      border-color: rgba(238, 255, 172, 0.25) !important;
+    }
+
+    /* Scroll arrow */
+    .light-mode .scroll-arrow { color: #162617; }
+    .dark-mode .scroll-arrow { color: #eeffac; }
+    @keyframes bob {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
+      50% { transform: translateY(8px); }
     }
-    .animate-float {
-      animation: float 2s ease-in-out infinite;
+    .scroll-arrow {
+      animation: bob 2s ease-in-out infinite;
     }
-    .highlight-green {
-      background: linear-gradient(to top, transparent 15%, rgba(238, 255, 172, 0.55) 15%, rgba(238, 255, 172, 0.55) 55%, transparent 55%);
-      padding: 0 0.1em;
-    }
-    .custom-cursor, .custom-cursor a, .custom-cursor button, .custom-cursor [role="button"] {
-      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24'%3E%3Cpath d='M5 3l14 9-6 1 4 7-2 1-4-7-4 5z' fill='%23eeffac' stroke='%23012345' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E") 0 0, auto;
-    }
-  </style>
-
-  <!-- Fixed Hero Background -->
-  <div class="custom-cursor" style="position: fixed; top: 0; left: 0; right: 0; height: 100vh; background-color: #162617; z-index: 0;">
-    <!-- Hero Section -->
-    <section class="min-h-screen flex items-center justify-center px-6">
-      <div class="max-w-4xl mx-auto text-center">
-        <p class="text-lg mb-4 animate-fade-in opacity-0" style="color: #FAF7F2;">Hi, I'm Emma</p>
-
-        <h1 class="font-[family-name:var(--font-display)] text-5xl md:text-7xl mb-6 animate-fade-in opacity-0 animate-delay-1" style="color: #FAF7F2;">
-          I am a <span class="highlight-green">Brooklyn-based creative</span> with a love for design, film photography, and visual storytelling.
-        </h1>
-
-        <p class="text-xl max-w-2xl mx-auto mb-10 animate-fade-in opacity-0 animate-delay-2" style="color: #FAF7F2;">
-          Currently open to new opportunities.
-        </p>
-
-        <div class="flex justify-center animate-fade-in opacity-0 animate-delay-3">
-          <a
-            href="#work"
-            class="px-8 py-3 rounded-full font-medium animate-float"
-            style="background-color: #eeffac; color: #162617;"
-          >
-            Scroll ↓
-          </a>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- Navigation (stays on top) -->
-  <nav class="fixed top-0 left-0 right-0 z-50 custom-cursor" style="background-color: rgba(22, 38, 23, 0.9); backdrop-filter: blur(8px);">
-    <div style="padding: 1rem 4rem;" class="nav-container flex justify-between items-center">
-      <a href="/" class="nav-name font-[family-name:var(--font-display)] text-xl transition-colors hover-lime" style="color: #FAF7F2;">Emma Heineman</a>
-      <div class="nav-links flex gap-8">
-        <a href="#work" class="transition-colors hover-lime" style="color: #FAF7F2;">Design Work</a>
-        <a href="#about" class="transition-colors hover-lime" style="color: #FAF7F2;">About</a>
-        <a href="/film-photography" class="transition-colors hover-lime" style="color: #FAF7F2;">Film Photography</a>
-      </div>
-    </div>
-  </nav>
-
-  <style>
     @media (max-width: 768px) {
-      .nav-container {
-        justify-content: center !important;
-        padding: 0.75rem 0 !important;
+      .hero-section {
+        min-height: calc(100vh - 60px) !important;
       }
-      .nav-name {
-        display: none;
+      section {
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
       }
-      .nav-links {
-        gap: 1.25rem !important;
-        font-size: 0.85rem;
-        width: 100%;
-        justify-content: center;
+      section h1 {
+        font-size: 1.75rem !important;
       }
-      .scrolling-content {
-        padding: 0 !important;
+      .projects-list {
+        gap: 0 !important;
       }
-      .frosted-panel {
-        border-radius: 0 !important;
+      .project-row {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+        padding: 1.5rem 0 !important;
       }
-      .contact-buttons {
-        flex-direction: column;
-        align-items: stretch;
+      .project-row > div:first-child {
+        order: 2;
+        grid-template-columns: 1fr !important;
+        gap: 0.5rem !important;
       }
-      .contact-buttons a {
-        text-align: center;
+      .project-row > div:first-child > div {
+        margin-left: 0 !important;
       }
-      #work {
-        padding-top: 2rem !important;
-        padding-bottom: 2rem !important;
+      .project-row > div:last-child {
+        order: 1;
+        max-width: 100% !important;
+        margin-left: 0 !important;
       }
-      #work p {
-        margin-bottom: 2rem !important;
+      .project-title {
+        white-space: normal !important;
+      }
+      .project-description {
+        max-width: 100% !important;
       }
     }
   </style>
 
-  <!-- Scrolling Content -->
-  <div class="scrolling-content custom-cursor" style="position: relative; z-index: 1; padding: 0 4rem;">
-    <!-- Spacer to push content below hero -->
-    <div style="height: 100vh;"></div>
-
-    <!-- Frosted glass container - Work Section -->
-    <div class="frosted-panel" style="background-color: rgba(250, 247, 242, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-radius: 2rem;">
-      <section id="work" class="py-24 px-6">
-        <div class="max-w-6xl mx-auto">
-          <h2 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl mb-4 text-center" style="color: #162617;">
-            Selected Work
-          </h2>
-          <p class="text-center mb-16 max-w-xl mx-auto" style="color: #162617;">
-            A collection of brand and visual design projects I'm proud of.
-          </p>
-
-          <!-- Projects Grid -->
-          <div class="grid md:grid-cols-2 gap-8">
-            {projects.map((project, index) => (
-              <a
-                href={project.slug ? `/projects/${project.slug}` : "#"}
-                class="group block rounded-2xl p-8 hover-lift"
-                style="background-color: #162617;"
-              >
-                <!-- Project image -->
-                {project.image ? (
-                  <div class="aspect-square rounded-xl mb-6 overflow-hidden">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      style={project.thumbnailStyle || ""}
-                    />
-                  </div>
-                ) : (
-                  <div class="aspect-square bg-white/50 rounded-xl mb-6 flex items-center justify-center text-text-light">
-                    Project Image
-                  </div>
-                )}
-
-                <div class="flex justify-between items-start mb-2">
-                  <h3 class="font-[family-name:var(--font-display)] text-2xl transition-colors group-hover-lime" style="color: #FAF7F2;">
-                    {project.title}
-                  </h3>
-                </div>
-
-                <p class="text-sm mb-3" style="color: #FAF7F2;">{project.category}</p>
-                <p style="color: #FAF7F2;">{project.description}</p>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
+  <!-- Hero -->
+  <section class="hero-section" style="min-height: calc(100vh - 80px); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem 3rem; max-width: 900px; margin: 0 auto; text-align: center; position: relative;">
+    <div>
+      <p class="hero-intro" style="font-size: 1.1rem; margin-bottom: 1rem;">Hi, I'm Emma.</p>
+      <h1 class="hero-title font-[family-name:var(--font-display)]" style="font-size: 3rem; line-height: 1.3; margin-bottom: 1.5rem;">
+        A <span class="highlight-green">Brooklyn-based designer</span> with a love for branding, visual storytelling, and film photography.
+      </h1>
+      <p class="hero-subtext" style="font-size: 1.1rem;">
+        Currently open to new opportunities.
+      </p>
     </div>
+    <!-- Scroll indicator -->
+    <a href="#work" class="scroll-arrow" style="position: absolute; bottom: 2rem; text-decoration: none;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 5v14M5 12l7 7 7-7"/>
+      </svg>
+    </a>
+  </section>
 
-    <!-- Gap between panels -->
-    <div style="height: 2rem;"></div>
-
-    <!-- Frosted glass container - About Section -->
-    <div class="frosted-panel" style="background-color: rgba(238, 255, 172, 0.8); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-radius: 2rem;">
-      <section id="about" class="py-16 px-6">
-        <div class="max-w-4xl mx-auto">
-          <div class="grid md:grid-cols-2 gap-12 items-center">
-            <!-- Photo -->
-            <div class="aspect-square rounded-2xl overflow-hidden">
-              <img
-                src="/images/me/IMG_2474.JPG"
-                alt="Emma"
-                class="w-full h-full object-cover"
-                style="transform: scale(1.15);"
-              />
-            </div>
-
-            <div>
-              <h2 class="font-[family-name:var(--font-display)] text-4xl mb-6" style="color: #162617;">
-                About Me
-              </h2>
-
-              <div class="space-y-4" style="color: #162617;">
-                <p>
-                  Hi! I'm Emma, a brand and visual designer based in Brooklyn, NY.
-                </p>
-
-                <p>
-                  I've always been drawn to how design shapes the world around us. I love working on meaningful projects, connecting with my community, and collaborating with people who care about what they're creating. When I'm not designing, I'm probably knitting, gardening, or diving into some other creative project.
-                </p>
-
-                <p>
-                  I'm currently looking for new opportunities. If you think we'd be a good fit, I'd love to hear from you!
-                </p>
-              </div>
-
-              <div class="contact-buttons mt-8 flex gap-4">
-                <a
-                  href="mailto:heineman2022@gmail.com"
-                  class="px-6 py-2 text-white rounded-full transition-colors font-medium hover-lime-bg"
-                  style="background-color: #162617;"
-                >
-                  Let's chat
-                </a>
-                <a
-                  href="https://www.instagram.com/emma.h.designs"
-                  target="_blank"
-                  rel="noopener"
-                  class="px-6 py-2 border-2 rounded-full transition-colors font-medium hover-lime-bg"
-                  style="border-color: #162617; color: #162617;"
-                >
-                  Instagram
-                </a>
-              </div>
+  <!-- Work Section -->
+  <section id="work" style="padding: 0 3rem 2rem 3rem;">
+    <div class="projects-list" style="display: flex; flex-direction: column;">
+      {projects.map((project, index) => (
+        <a
+          href={`/projects/${project.slug}`}
+          class="project-row"
+          style={`text-decoration: none; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; padding: 2.5rem 0; ${index !== 0 ? 'border-top: 1px solid;' : ''}`}
+        >
+          <div style="display: grid; grid-template-columns: auto auto 1fr; gap: 3rem; align-items: baseline;">
+            <p class="project-year" style="font-size: 0.85rem;">{project.year}</p>
+            <p class="project-category" style="font-size: 0.85rem;">{project.category}</p>
+            <div style="text-align: left; margin-left: 2rem;">
+              <h3 class="project-title" style="font-size: 1rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap;">
+                {project.title}
+              </h3>
+              <p class="project-description" style="font-size: 0.9rem; line-height: 1.5; max-width: 280px;">{project.description}</p>
             </div>
           </div>
-        </div>
-      </section>
-
-    </div> <!-- End About frosted glass container -->
-
-  </div> <!-- End scrolling content -->
-
-  <!-- Footer on main background -->
-  <footer class="py-8 px-6 text-center text-sm" style="position: relative; z-index: 1; color: #eeffac;">
-    <p class="footer-credit" style="cursor: default; display: inline-block; position: relative;">
-      Designed & built by Emma<span class="claude-credit"> ^and claude code!</span>
-    </p>
-  </footer>
-
-  <style>
-    .claude-credit {
-      opacity: 0;
-      font-family: 'Caveat', cursive;
-      font-size: 1.1rem;
-      margin-left: 0.25rem;
-      transition: opacity 0.3s ease;
-      position: absolute;
-      white-space: nowrap;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-    .footer-credit:hover .claude-credit {
-      opacity: 1;
-    }
-  </style>
-
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&display=swap" rel="stylesheet">
+          <div style="overflow: hidden; border-radius: 0.5rem; aspect-ratio: 3/2;">
+            <img
+              src={project.image}
+              alt={project.title}
+              style={`width: 100%; height: 100%; object-fit: cover; display: block; ${project.thumbnailStyle || ''}`}
+            />
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
 
 </Layout>

@@ -1,0 +1,46 @@
+---
+import Layout from './Layout.astro';
+import Lightbox from '../components/Lightbox.astro';
+
+interface Props {
+  title: string;
+  photos: string[];
+}
+
+const { title, photos } = Astro.props;
+---
+
+<Layout title={`${title} | Film Photography | Emma`}>
+  <style is:global>
+    .light-mode .album-page { background-color: #FAF7F2; }
+    .light-mode .album-title { color: #162617; }
+    .light-mode .btn-back-album { background-color: #162617; color: #FAF7F2; border: 2px solid #162617; }
+    .light-mode .btn-back-album:hover { background-color: #eeffac; color: #162617; border-color: #eeffac; }
+    .dark-mode .album-page { background-color: #162617; }
+    .dark-mode .album-title { color: #eeffac; }
+    .dark-mode .btn-back-album { background-color: transparent; color: #eeffac; border: 2px solid #eeffac; }
+    .dark-mode .btn-back-album:hover { background-color: #eeffac; color: #162617; }
+    @media (max-width: 768px) {
+      .album-layout { grid-template-columns: 1fr !important; }
+      .album-text { position: static !important; padding: 1.5rem !important; }
+      .album-photos { columns: 1 !important; padding: 0 1.5rem 2rem 1.5rem !important; }
+    }
+  </style>
+  <div class="album-page" style="min-height: 100vh;">
+    <div class="album-layout" style="display: grid; grid-template-columns: 340px 1fr;">
+      <div class="album-text" style="padding: 2rem 2rem 2rem; position: sticky; top: 0; height: fit-content;">
+        <a href="/film-photography" class="btn-back-album font-medium" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1.5rem; border-radius: 50px; font-size: 0.9rem; text-decoration: none; transition: all 0.2s; margin-bottom: 2rem;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Back
+        </a>
+        <h1 class="album-title font-[family-name:var(--font-display)] text-3xl md:text-4xl">{title}</h1>
+      </div>
+      <div class="album-photos" style="padding: 2rem 1rem 3rem 0; columns: 2; gap: 1rem;">
+        {photos.map((photo, index) => (
+          <img src={photo} alt={`${title} photo ${index + 1}`} data-index={index} class="gallery-photo" loading="lazy" style="width: 100%; margin-bottom: 1rem; break-inside: avoid; border-radius: 0.5rem; cursor: pointer;" />
+        ))}
+      </div>
+    </div>
+  </div>
+  <Lightbox photos={photos} />
+</Layout>

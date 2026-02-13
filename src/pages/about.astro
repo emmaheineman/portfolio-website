@@ -1,0 +1,99 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="About | Emma Heineman">
+  <style is:global>
+    .hover-lime-bg:hover {
+      background-color: #eeffac !important;
+      color: #162617 !important;
+      border-color: #eeffac !important;
+    }
+
+    /* Light mode */
+    .light-mode .about-intro,
+    .light-mode .about-text {
+      color: #666;
+    }
+    .light-mode .about-title {
+      color: #162617;
+    }
+    .light-mode .btn-primary {
+      background-color: #162617;
+      color: white;
+    }
+    .light-mode .btn-outline {
+      border-color: #162617;
+      color: #162617;
+    }
+
+    /* Dark mode */
+    .dark-mode .about-intro {
+      color: #eeffac;
+    }
+    .dark-mode .about-text {
+      color: #FAF7F2;
+    }
+    .dark-mode .about-title {
+      color: #FAF7F2;
+    }
+    .dark-mode .btn-primary {
+      background-color: #eeffac;
+      color: #162617;
+    }
+    .dark-mode .btn-outline {
+      border-color: #eeffac;
+      color: #eeffac;
+    }
+    @media (max-width: 768px) {
+      section {
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+      }
+      .about-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+      }
+      section h1 {
+        font-size: 1.75rem !important;
+      }
+    }
+  </style>
+
+  <!-- About Content -->
+  <section style="padding: 2rem 3rem 6rem 3rem;">
+    <div class="about-grid" style="display: grid; grid-template-columns: 560px 1fr; gap: 6rem; max-width: 1200px; align-items: stretch;">
+      <div style="overflow: hidden; border-radius: 0.5rem; aspect-ratio: 1/1;">
+        <img
+          src="/images/me/IMG_2474.JPG"
+          alt="Emma"
+          style="width: 100%; height: 100%; object-fit: cover; display: block; object-position: center 40%;"
+        />
+      </div>
+      <div style="display: flex; flex-direction: column; justify-content: space-between; height: 100%; padding-bottom: 2rem;">
+        <div>
+          <p class="about-intro" style="font-size: 1.1rem; margin-bottom: 1rem;">Hi, I'm Emma.</p>
+          <h1 class="about-title font-[family-name:var(--font-display)]" style="font-size: 2.5rem; line-height: 1.3; margin-bottom: 2rem;">
+            A brand and visual designer based in Brooklyn, NY.
+          </h1>
+          <div class="about-text" style="line-height: 1.8; font-size: 1rem;">
+            <p style="margin-bottom: 1.25rem;">
+              I've always been drawn to how design shapes the world around us. I love working on meaningful projects, connecting with my community, and collaborating with people who care about what they're creating.
+            </p>
+            <p style="margin-bottom: 1.25rem;">
+              When I'm not designing, I'm probably knitting, gardening, or diving into some other creative project.
+            </p>
+            <p style="margin-bottom: 0;">
+              I'm currently looking for new opportunities. If you think we'd be a good fit, I'd love to hear from you.
+            </p>
+          </div>
+        </div>
+        <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+          <a href="mailto:heineman2022@gmail.com" class="btn-primary hover-lime-bg" style="padding: 0.5rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 500; transition: all 0.2s;">Let's chat</a>
+          <a href="https://www.instagram.com/emma.h.designs" target="_blank" rel="noopener" class="btn-outline hover-lime-bg" style="border: 2px solid; padding: 0.5rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 500; transition: all 0.2s;">Instagram</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>

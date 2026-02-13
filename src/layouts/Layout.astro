@@ -20,11 +20,174 @@ const { title, description = "Emma's Design Portfolio" } = Astro.props;
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&family=Caveat:wght@500&display=swap" rel="stylesheet" />
 
     <title>{title}</title>
+
+    <style>
+      /* Theme styles */
+      .hover-underline:hover {
+        text-decoration: underline;
+      }
+
+      /* Light mode */
+      .light-mode {
+        background-color: #FAF7F2;
+      }
+      .light-mode .nav-logo,
+      .light-mode .nav-link,
+      .light-mode #theme-toggle {
+        color: #162617;
+      }
+      .light-mode .sun-icon { display: none !important; }
+      .light-mode .moon-icon { display: block !important; }
+
+      /* Dark mode */
+      .dark-mode {
+        background-color: #162617;
+      }
+      .dark-mode .nav-logo {
+        color: #eeffac;
+      }
+      .dark-mode .nav-link {
+        color: #FAF7F2;
+      }
+      .dark-mode #theme-toggle {
+        color: #eeffac;
+      }
+      .dark-mode .sun-icon { display: block !important; }
+      .dark-mode .moon-icon { display: none !important; }
+
+      /* Sticky nav */
+      .site-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        padding: 1.5rem 3rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background-color 0.3s ease;
+      }
+      .light-mode .site-nav {
+        background-color: rgba(250, 247, 242, 0.9);
+        backdrop-filter: blur(8px);
+      }
+      .dark-mode .site-nav {
+        background-color: rgba(22, 38, 23, 0.9);
+        backdrop-filter: blur(8px);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+      }
+
+      /* Spacer for fixed nav */
+      .nav-spacer {
+        height: 80px;
+      }
+
+      /* Footer styles */
+      .light-mode .footer-credit {
+        color: #162617;
+      }
+      .dark-mode .footer-credit {
+        color: #eeffac;
+      }
+      .claude-credit {
+        opacity: 0;
+        font-family: 'Caveat', cursive;
+        font-size: 1.1rem;
+        margin-left: 0.25rem;
+        transition: opacity 0.3s ease;
+        position: absolute;
+        white-space: nowrap;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .footer-credit:hover .claude-credit {
+        opacity: 1;
+      }
+
+      @media (max-width: 768px) {
+        .site-nav {
+          padding: 1rem 1.5rem !important;
+        }
+        .nav-links {
+          gap: 0.75rem !important;
+          font-size: 0.8rem;
+          flex: 1;
+          justify-content: center;
+        }
+        .nav-logo {
+          display: none;
+        }
+        #theme-toggle {
+          position: absolute;
+          right: 1.5rem;
+        }
+        .nav-spacer {
+          height: 60px;
+        }
+      }
+    </style>
   </head>
   <body class="min-h-screen">
-    <slot />
+    <div id="page-container" class="dark-mode" style="min-height: 100vh; transition: background-color 0.3s ease, color 0.3s ease;">
+      <!-- Sticky Navigation -->
+      <nav class="site-nav">
+        <a href="/" class="nav-logo" style="text-decoration: none; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.9rem;">
+          Emma Heineman
+        </a>
+        <div style="display: flex; align-items: center; gap: 2rem;">
+          <div class="nav-links">
+            <a href="/#work" class="nav-link hover-underline" style="text-decoration: none;">Work</a>
+            <a href="/about" class="nav-link hover-underline" style="text-decoration: none;">About</a>
+            <a href="/film-photography" class="nav-link hover-underline" style="text-decoration: none;">Film Photography</a>
+          </div>
+          <button id="theme-toggle" style="background: none; border: none; cursor: pointer; padding: 0.5rem; display: flex; align-items: center; justify-content: center;">
+            <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Spacer for fixed nav -->
+      <div class="nav-spacer"></div>
+
+      <!-- Page content -->
+      <slot />
+
+      <!-- Footer -->
+      <footer style="padding: 2rem 3rem; text-align: center; color: #999; font-size: 0.85rem;">
+        <p class="footer-credit" style="cursor: default; display: inline-block; position: relative;">
+          Designed & built by Emma<span class="claude-credit"> ^and claude code!</span>
+        </p>
+      </footer>
+    </div>
+
+    <script>
+      const toggle = document.getElementById('theme-toggle');
+      const container = document.getElementById('page-container');
+
+      // Check for saved preference
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        container.classList.remove('dark-mode');
+        container.classList.add('light-mode');
+      }
+
+      toggle.addEventListener('click', () => {
+        container.classList.toggle('light-mode');
+        container.classList.toggle('dark-mode');
+
+        // Save preference
+        const isDark = container.classList.contains('dark-mode');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      });
+    </script>
   </body>
 </html>

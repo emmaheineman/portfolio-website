@@ -32,6 +32,8 @@
 /* Base styles */
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  scroll-padding-top: 90px;
 }
 
 body {
@@ -39,6 +41,7 @@ body {
   background-color: var(--color-warm-white);
   color: var(--color-text-dark);
   line-height: 1.6;
+  overflow-x: hidden;
   cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24'%3E%3Cpath d='M5 3l14 9-6 1 4 7-2 1-4-7-4 5z' fill='%23eeffac' stroke='%23012345' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E") 0 0, auto;
 }
 

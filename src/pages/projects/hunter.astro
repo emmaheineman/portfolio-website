@@ -1,10 +1,27 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import ProjectLayout from '../../layouts/ProjectLayout.astro';
 
 const project = {
   title: "Office of Education Abroad",
   category: "Brand Identity",
   description: "A cohesive visual identity for CUNY Hunter College's study abroad office, built from the ground up.",
+  year: "2021-Present",
+  type: "Brand Identity",
+  deliverables: "Logo, design guidelines, marketing materials, social media templates",
+  sections: [
+    {
+      title: "The Challenge",
+      body: "When I joined the Office of Education Abroad at CUNY Hunter College, the office had been dormant since COVID. There was no cohesive visual identity in place, and I was regularly asked to create flyers, posters, and Instagram posts without any foundation to build from. I saw an opportunity to change that.",
+    },
+    {
+      title: "The Approach",
+      body: "I started fresh, developing a complete visual identity using the university's existing color palette to stay consistent with CUNY Hunter's broader brand. I created a logo, established design guidelines, and built a system of templates that could be applied across all our materials, from campus posters to social media.",
+    },
+    {
+      title: "The Impact",
+      body: "Three and a half years later, our materials are instantly recognizable around campus. Faculty, students, and other offices regularly comment that they can spot our flyers and posters and know immediately they're from our office. That recognition is exactly what a strong visual identity should do.",
+    },
+  ],
   images: [
     { src: "/projects/hunter/flyer mock.png", alt: "Hunter flyer mockup" },
     { src: "/projects/hunter/Summer 2026 Flyers.jpg", alt: "Summer 2026 Flyer" },
@@ -16,141 +33,24 @@ const project = {
     { src: "/projects/hunter/main logo.png", alt: "Hunter main logo" },
     { src: "/projects/hunter/Logos.png", alt: "Hunter logo variations" },
     { src: "/projects/hunter/Instagram Designs mock.jpg", alt: "Hunter Instagram designs mockup" },
-  ]
+  ],
 };
 ---
 
-<Layout title={`${project.title} | Emma`}>
-  <style>
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background-color: #162617;
-      color: #FAF7F2;
-      padding: 0.6rem 1.5rem;
-      border-radius: 50px;
-      font-size: 0.9rem;
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-    .btn-primary:hover {
-      background-color: #eeffac;
-      color: #162617;
-    }
-    .btn-large {
-      padding: 1rem 2.5rem;
-      font-size: 1.1rem;
-    }
-    @media (max-width: 768px) {
-      .project-container {
-        padding: 1.5rem !important;
-      }
-      .project-layout {
-        grid-template-columns: 1fr !important;
-        gap: 2rem !important;
-      }
-      .project-text {
-        position: static !important;
-        max-height: none !important;
-        overflow-y: visible !important;
-        padding-right: 0 !important;
-      }
-      .project-images {
-        padding: 0 !important;
-      }
-      .project-images img {
-        width: 100% !important;
-      }
-      .back-nav {
-        padding: 1rem 1.5rem !important;
-      }
-    }
-  </style>
-
-  <!-- Back navigation -->
-  <nav class="bg-warm-white border-b border-cream-dark">
-    <div class="back-nav" style="padding: 1rem 2rem 1rem 5rem;">
-      <a href="/#work" class="btn-primary font-medium">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M19 12H5M12 19l-7-7 7-7"/>
-        </svg>
-        Back to all work
-      </a>
-    </div>
-  </nav>
-
-  <!-- Two-column layout -->
-  <div class="project-container" style="padding: 2rem 2rem 4rem 5rem;">
-    <div class="project-layout" style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
-
-      <!-- Left column - Text content (sticky and scrollable) -->
-      <div class="project-text" style="position: sticky; top: 2rem; align-self: start; max-height: calc(100vh - 4rem); overflow-y: auto; padding-right: 1rem;">
-        <p style="color: #162617;" class="font-medium mb-4">{project.category}</p>
-        <h1 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl mb-6" style="color: #162617;">
-          {project.title}
-        </h1>
-        <p style="color: #1a1a1a; font-style: italic;" class="text-lg mb-8">
-          {project.description}
-        </p>
-
-        <!-- Project Details -->
-        <div style="display: flex; gap: 2rem; padding: 1.5rem 0; border-top: 1px solid #EDE8E0; border-bottom: 1px solid #EDE8E0; margin-bottom: 2rem;">
-          <div style="flex: 0 0 auto;">
-            <p style="color: #666666;" class="text-sm mb-1">Year</p>
-            <p style="color: #1a1a1a;" class="font-medium text-sm">2021-Present</p>
-          </div>
-          <div style="flex: 0 0 auto;">
-            <p style="color: #666666;" class="text-sm mb-1">Type</p>
-            <p style="color: #1a1a1a;" class="font-medium text-sm">Brand Identity</p>
-          </div>
-          <div style="flex: 1;">
-            <p style="color: #666666;" class="text-sm mb-1">Deliverables</p>
-            <p style="color: #1a1a1a;" class="font-medium text-sm">Logo, design guidelines, marketing materials, social media templates</p>
-          </div>
-        </div>
-
-        <!-- About sections -->
-        <div class="space-y-4">
-          <div>
-            <h3 style="color: #162617;" class="font-semibold">The Challenge</h3>
-            <p style="color: #1a1a1a;">
-              When I joined the Office of Education Abroad at CUNY Hunter College, the office had been dormant since COVID. There was no cohesive visual identity in place, and I was regularly asked to create flyers, posters, and Instagram posts without any foundation to build from. I saw an opportunity to change that.
-            </p>
-          </div>
-          <div>
-            <h3 style="color: #162617;" class="font-semibold">The Approach</h3>
-            <p style="color: #1a1a1a;">
-              I started fresh, developing a complete visual identity using the university's existing color palette to stay consistent with CUNY Hunter's broader brand. I created a logo, established design guidelines, and built a system of templates that could be applied across all our materials, from campus posters to social media.
-            </p>
-          </div>
-          <div>
-            <h3 style="color: #162617;" class="font-semibold">The Impact</h3>
-            <p style="color: #1a1a1a;">
-              Three and a half years later, our materials are instantly recognizable around campus. Faculty, students, and other offices regularly comment that they can spot our flyers and posters and know immediately they're from our office. That recognition is exactly what a strong visual identity should do.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right column - Images -->
-      <div class="project-images" style="display: flex; flex-direction: column; align-items: center; gap: 2rem; padding: 0 1.5rem;">
-        {project.images.map((image) => (
-          <img
-            src={image.src}
-            alt={image.alt}
-            style="width: 80%; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"
-          />
-        ))}
-      </div>
-
-    </div>
-  </div>
-
-  <!-- Bottom Button -->
-  <div style="text-align: center; padding: 4rem 1.5rem 6rem;">
-    <a href="/#work" class="btn-primary btn-large font-medium">
-      View All Work →
-    </a>
-  </div>
-</Layout>
+<ProjectLayout
+  title={project.title}
+  category={project.category}
+  description={project.description}
+  year={project.year}
+  type={project.type}
+  deliverables={project.deliverables}
+  sections={project.sections}
+>
+  {project.images.map((image) => (
+    <img
+      src={image.src}
+      alt={image.alt}
+      style="width: 80%; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"
+    />
+  ))}
+</ProjectLayout>
