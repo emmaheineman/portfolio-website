@@ -34,6 +34,33 @@ const project = {
 };
 ---
 
+<style is:global>
+  /* Light mode: dark green box, cream text */
+  .light-mode .pullout-quote,
+  .pullout-quote {
+    background-color: #162617;
+  }
+  .light-mode .pullout-quote-text,
+  .pullout-quote-text {
+    color: #FAF7F2;
+  }
+  .light-mode .pullout-quote-author,
+  .pullout-quote-author {
+    color: #eeffac;
+  }
+
+  /* Dark mode: cream box, dark green text */
+  .dark-mode .pullout-quote {
+    background-color: #FAF7F2;
+  }
+  .dark-mode .pullout-quote-text {
+    color: #162617;
+  }
+  .dark-mode .pullout-quote-author {
+    color: #162617;
+  }
+</style>
+
 <ProjectLayout
   title={project.title}
   category={project.category}
@@ -44,11 +71,11 @@ const project = {
   sections={project.sections}
 >
   <Fragment slot="after-sections">
-    <div style="background-color: #162617; padding: 1.5rem; margin-top: 2rem; border-radius: 8px;">
-      <p style="color: #FAF7F2;" class="italic mb-3">
+    <div class="pullout-quote" style="padding: 1.5rem; margin-top: 2rem; border-radius: 8px;">
+      <p class="pullout-quote-text italic mb-3">
         "Emma was an absolute pleasure to work with. She was timely, accessible and flexible. She was quick with understanding the task and very easily took the resources that I provided to execute. She was very creative and took feedback very well to come up with design ideas that were exactly what we were looking for."
       </p>
-      <p style="color: #eeffac;" class="font-medium text-sm">KHKC Director</p>
+      <p class="pullout-quote-author font-medium text-sm">KHKC Director</p>
     </div>
   </Fragment>
 
