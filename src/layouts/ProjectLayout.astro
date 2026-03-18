@@ -86,6 +86,36 @@ const { title, category, description, year, type, deliverables, sections } = Ast
     .dark-mode .project-details-bar {
       border-color: rgba(238, 255, 172, 0.3) !important;
     }
+
+    /* Scrollbar styling - light mode */
+    .light-mode .project-text::-webkit-scrollbar,
+    .light-mode .project-images::-webkit-scrollbar {
+      width: 6px;
+    }
+    .light-mode .project-text::-webkit-scrollbar-track,
+    .light-mode .project-images::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .light-mode .project-text::-webkit-scrollbar-thumb,
+    .light-mode .project-images::-webkit-scrollbar-thumb {
+      background: #e0ddd8;
+      border-radius: 3px;
+    }
+
+    /* Scrollbar styling - dark mode */
+    .dark-mode .project-text::-webkit-scrollbar,
+    .dark-mode .project-images::-webkit-scrollbar {
+      width: 6px;
+    }
+    .dark-mode .project-text::-webkit-scrollbar-track,
+    .dark-mode .project-images::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .dark-mode .project-text::-webkit-scrollbar-thumb,
+    .dark-mode .project-images::-webkit-scrollbar-thumb {
+      background: #2a3f2b;
+      border-radius: 3px;
+    }
     @media (max-width: 768px) {
       .project-container {
         padding: 1.5rem !important;
