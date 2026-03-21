@@ -13,23 +13,21 @@ const projects = [
   },
   {
     id: 2,
+    title: "Sadie Skin",
+    slug: "project-two",
+    category: "Mock Project",
+    year: "2024",
+    description: "A clean, minimal skincare brand identity designed to feel fresh and approachable.",
+    image: "/projects/sadie-skin/image-13.jpg",
+  },
+  {
+    id: 3,
     title: "Keene Housing Kids Collaborative",
     slug: "khkc",
     category: "Print Design",
     year: "2025",
     description: "Print design for a nonprofit connecting kids in affordable housing with enriching programs.",
-    image: "/projects/KHKC/zoomed out.png",
-    thumbnailStyle: "transform: scale(1.5);",
-  },
-  {
-    id: 3,
-    title: "Graduation Announcement",
-    slug: "project-three",
-    category: "Print Design",
-    year: "2024",
-    description: "A custom graduation announcement designed to capture personality over formality.",
-    image: "/projects/tate/Tate front.jpg",
-    thumbnailStyle: "object-position: center 25%;",
+    image: "/projects/KHKC/thumbnail.jpg",
   },
   {
     id: 4,
@@ -42,21 +40,22 @@ const projects = [
   },
   {
     id: 5,
+    title: "Graduation Announcement",
+    slug: "project-three",
+    category: "Print Design",
+    year: "2024",
+    description: "A custom graduation announcement designed to capture personality over formality.",
+    image: "/projects/tate/Tate front.jpg",
+    thumbnailStyle: "object-position: center 25%;",
+  },
+  {
+    id: 6,
     title: "Acro Yoga CHS",
     slug: "acro-yoga",
     category: "Brand Identity",
     year: "2023",
     description: "Brand identity for an acrobatic yoga group in Charleston, SC.",
     image: "/projects/acro-yoga/ACRO-02.jpg",
-  },
-  {
-    id: 6,
-    title: "Sadie Skin",
-    slug: "project-two",
-    category: "Mock Project",
-    year: "2024",
-    description: "A clean, minimal skincare brand identity designed to feel fresh and approachable.",
-    image: "/projects/sadie-skin/image-13.jpg",
   },
 ];
 ---
@@ -200,8 +199,7 @@ const projects = [
           class="project-row"
           style={`text-decoration: none; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; padding: 2.5rem 0; ${index !== 0 ? 'border-top: 1px solid;' : ''}`}
         >
-          <div style="display: grid; grid-template-columns: auto auto 1fr; gap: 3rem; align-items: baseline;">
-            <p class="project-year" style="font-size: 0.85rem;">{project.year}</p>
+          <div style="display: grid; grid-template-columns: auto 1fr; gap: 3rem; align-items: baseline;">
             <p class="project-category" style="font-size: 0.85rem;">{project.category}</p>
             <div style="text-align: left; margin-left: 2rem;">
               <h3 class="project-title" style="font-size: 1rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap;">
