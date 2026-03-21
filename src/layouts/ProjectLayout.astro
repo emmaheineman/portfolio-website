@@ -14,9 +14,11 @@ interface Props {
   type: string;
   deliverables: string;
   sections: Section[];
+  thumbnail?: string;
+  thumbnailStyle?: string;
 }
 
-const { title, category, description, year, type, deliverables, sections } = Astro.props;
+const { title, category, description, year, type, deliverables, sections, thumbnail, thumbnailStyle } = Astro.props;
 ---
 
 <Layout title={`${title} | Emma`}>
@@ -145,6 +147,9 @@ const { title, category, description, year, type, deliverables, sections } = Ast
       .back-nav {
         padding: 1rem 1.5rem !important;
       }
+      .mobile-thumbnail {
+        display: block !important;
+      }
     }
   </style>
 
@@ -164,6 +169,11 @@ const { title, category, description, year, type, deliverables, sections } = Ast
 
       <!-- Left column - Text content (scrollable) -->
       <div class="project-text" style="overflow-y: auto; padding-right: 1rem; height: 100%; padding-top: 2rem; padding-bottom: 2rem;">
+        {thumbnail && (
+          <div class="mobile-thumbnail" style="display: none; margin-bottom: 1.5rem; overflow: hidden; border-radius: 0.5rem; aspect-ratio: 3/2;">
+            <img src={thumbnail} alt={title} style={`width: 100%; height: 100%; object-fit: cover; display: block; ${thumbnailStyle || ''}`} />
+          </div>
+        )}
         <p style="color: #162617;" class="project-category font-medium mb-4">{category}</p>
         <h1 class="project-title font-[family-name:var(--font-display)] text-4xl md:text-5xl mb-6" style="color: #162617;">
           {title}

@@ -168,11 +168,19 @@ const { title, description = "Emma Heineman" } = Astro.props;
         .nav-spacer {
           height: 60px;
         }
+        .site-footer {
+          flex-direction: column !important;
+          align-items: center !important;
+          gap: 1rem !important;
+        }
+        .footer-buttons {
+          flex-direction: row !important;
+        }
       }
     </style>
   </head>
   <body class="min-h-screen">
-    <div id="page-container" class="dark-mode" style="min-height: 100vh; transition: background-color 0.3s ease, color 0.3s ease;">
+    <div id="page-container" class="light-mode" style="min-height: 100vh; transition: background-color 0.3s ease, color 0.3s ease;">
       <!-- Sticky Navigation -->
       <nav class="site-nav">
         <a href="/" class="nav-logo" style="text-decoration: none; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.9rem;">
@@ -198,8 +206,8 @@ const { title, description = "Emma Heineman" } = Astro.props;
       <slot />
 
       <!-- Footer -->
-      <footer style="padding: 3rem 3rem 2rem; font-size: 0.85rem; display: flex; justify-content: space-between; align-items: center;">
-        <div style="display: flex; gap: 1rem;">
+      <footer class="site-footer" style="padding: 3rem 3rem 2rem; font-size: 0.85rem; display: flex; justify-content: space-between; align-items: center;">
+        <div class="footer-buttons" style="display: flex; gap: 1rem;">
           <a href="mailto:heineman2022@gmail.com" class="footer-btn">Email me</a>
           <a href="https://www.instagram.com/emma.h.designs" target="_blank" rel="noopener" class="footer-btn">Instagram</a>
         </div>
@@ -215,9 +223,9 @@ const { title, description = "Emma Heineman" } = Astro.props;
 
       // Check for saved preference
       const savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'light') {
-        container.classList.remove('dark-mode');
-        container.classList.add('light-mode');
+      if (savedTheme === 'dark') {
+        container.classList.remove('light-mode');
+        container.classList.add('dark-mode');
       }
 
       toggle.addEventListener('click', () => {

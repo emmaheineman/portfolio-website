@@ -1,0 +1,75 @@
+---
+import ProjectLayout from '../../layouts/ProjectLayout.astro';
+
+const project = {
+  title: "Graduation Announcement",
+  category: "Print Design",
+  description: "A custom graduation announcement designed to capture personality over formality.",
+  year: "2024",
+  type: "Print Design",
+  deliverables: "Graduation announcement design",
+  sections: [
+    {
+      title: "The Challenge",
+      body: "Every graduation announcement template out there looks the same. They are polished and formal, but ultimately pretty generic. This graduate is obsessed with his truck and couldn't wait to be done with school. He needed something that actually felt like him.",
+    },
+    {
+      title: "The Approach",
+      body: "Instead of a refined script font, I went with blocky, rough-edged typography and a tongue-in-cheek headline. The goal was to make people who know him laugh while still marking the occasion.",
+    },
+    {
+      title: "The Result",
+      body: "The final design is playful and personal and most importantly feels authentic to him. This was also one of my first projects to see through to print, which was really cool.",
+    },
+  ],
+  mainImages: [
+    { src: "/projects/tate/Tate front.jpg", alt: "Graduation announcement front" },
+    { src: "/projects/tate/Tate back.jpg", alt: "Graduation announcement back" },
+  ],
+  printImages: [
+    { src: "/projects/tate/tate real.jpg", alt: "Printed graduation announcement" },
+    { src: "/projects/tate/Title (2).jpg", alt: "Printed graduation announcement detail" },
+  ],
+};
+---
+
+<ProjectLayout
+  title={project.title}
+  category={project.category}
+  description={project.description}
+  year={project.year}
+  type={project.type}
+  deliverables={project.deliverables}
+  sections={project.sections}
+  thumbnail="/projects/tate/Tate front.jpg"
+  thumbnailStyle="object-position: center 25%; transform: scale(1.05);"
+>
+  {project.mainImages.map((image) => (
+    <img
+      src={image.src}
+      alt={image.alt}
+      style="width: 80%; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"
+    />
+  ))}
+  <div class="print-photos" style="display: flex; gap: 1rem; width: 80%; justify-content: center;">
+    {project.printImages.map((image) => (
+      <img
+        src={image.src}
+        alt={image.alt}
+        style="width: calc(50% - 0.5rem); border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"
+      />
+    ))}
+  </div>
+  <style>
+    @media (max-width: 768px) {
+      .print-photos {
+        width: 100% !important;
+        gap: 0.5rem !important;
+      }
+      .print-photos img {
+        width: calc(50% - 0.25rem) !important;
+        border-radius: 8px !important;
+      }
+    }
+  </style>
+</ProjectLayout>

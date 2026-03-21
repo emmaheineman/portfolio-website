@@ -1,0 +1,57 @@
+---
+import ProjectLayout from '../../layouts/ProjectLayout.astro';
+
+const project = {
+  title: "Office of Education Abroad",
+  category: "Brand Identity",
+  description: "A cohesive visual identity for CUNY Hunter College's study abroad office, built from the ground up.",
+  year: "2021-Present",
+  type: "Brand Identity",
+  deliverables: "Logo, design guidelines, marketing materials, social media templates",
+  sections: [
+    {
+      title: "The Challenge",
+      body: "When I joined the Office of Education Abroad at CUNY Hunter College, the office had been dormant since COVID. There was no cohesive visual identity in place, and I was regularly asked to create flyers, posters, and Instagram posts without any foundation to build from. I saw an opportunity to change that.",
+    },
+    {
+      title: "The Approach",
+      body: "I started fresh, developing a complete visual identity using the university's existing color palette to stay consistent with CUNY Hunter's broader brand. I created a logo, established design guidelines, and built a system of templates that could be applied across all our materials, from campus posters to social media.",
+    },
+    {
+      title: "The Impact",
+      body: "Three and a half years later, our materials are instantly recognizable around campus. Faculty, students, and other offices regularly comment that they can spot our flyers and posters and know immediately they're from our office. That recognition is exactly what a strong visual identity should do.",
+    },
+  ],
+  images: [
+    { src: "/projects/hunter/flyer mock.png", alt: "Hunter flyer mockup" },
+    { src: "/projects/hunter/Summer 2026 Flyers.jpg", alt: "Summer 2026 Flyer" },
+    { src: "/projects/hunter/Summer 2026 Flyers 1.jpg", alt: "Summer 2026 Flyer" },
+    { src: "/projects/hunter/Summer 2026 Flyers 2.jpg", alt: "Summer 2026 Flyer" },
+    { src: "/projects/hunter/Summer 2026 Flyers 3.jpg", alt: "Summer 2026 Flyer" },
+    { src: "/projects/hunter/Summer 2026 Flyers 4.jpg", alt: "Summer 2026 Flyer" },
+    { src: "/projects/hunter/Summer 2026 Flyers 5.jpg", alt: "Summer 2026 Flyer" },
+    { src: "/projects/hunter/main logo.png", alt: "Hunter main logo" },
+    { src: "/projects/hunter/Logos.png", alt: "Hunter logo variations" },
+    { src: "/projects/hunter/Instagram Designs mock.jpg", alt: "Hunter Instagram designs mockup" },
+  ],
+};
+---
+
+<ProjectLayout
+  title={project.title}
+  category={project.category}
+  description={project.description}
+  year={project.year}
+  type={project.type}
+  deliverables={project.deliverables}
+  sections={project.sections}
+  thumbnail="/projects/hunter/Instagram Designs mock.jpg"
+>
+  {project.images.map((image) => (
+    <img
+      src={image.src}
+      alt={image.alt}
+      style="width: 80%; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"
+    />
+  ))}
+</ProjectLayout>
